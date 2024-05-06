@@ -1,0 +1,369 @@
+html {
+   font-family: "Sans-serif", "Lucida Sans Regular", "Lucida Grande",
+      "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+}
+body {
+   margin: 0;
+}
+main {
+   max-width: 1000px;
+   margin: 0 auto;
+}
+a {
+   text-decoration: none;
+   color: #00f;
+   transition: border 100ms ease;
+}
+a:hover{
+   background-color: gainsboro;
+   border-radius: 10px;
+}
+* {
+   box-sizing: border-box;
+}
+/* introduce */
+h1 {
+   line-height: 40px;
+   font-size: 50px;
+   margin: 0;
+}
+#introduce,
+#skill,
+#Projects {
+   display: flex;
+   flex-flow: row nowrap;
+   align-items: center;
+   justify-content: space-between;
+   width: 100%;
+   padding: 20px 5%;
+   background: radial-gradient(
+      circle at 25% 50%,
+      rgba(203, 203, 203, 1) 14%,
+      rgba(24, 32, 49, 1) 100%
+   );
+   border-radius: 30px;
+}
+#myImg,
+#skillImg {
+   width: 40%;
+   align-self: center;
+   position: relative;
+}
+#myImg img {
+   width: 100%;
+}
+@keyframes svg {
+   0% {
+      transform: translateY(0);
+   }
+   100% {
+      transform: translateY(20px) rotate(15deg);
+   }
+}
+#myIntroduce {
+   width: 60%;
+}
+#myIntroduce span {
+   font-size: 25px;
+}
+#myIntroduce p {
+   margin: 0;
+   font-size: 20px;
+   margin-top: 20px;
+}
+#youNeed {
+   display: flex;
+   justify-content: flex-start;
+   gap: 10px;
+   margin: 10px 0;
+}
+#youNeed a {
+   display: block;
+   background-color: #00f;
+   padding: 10px 20px;
+   border-radius: 20px;
+   color: #000;
+   user-select: none;
+   border: none;
+   &:hover {
+      background-color: rgb(95 95 255);
+   }
+}
+/* skills */
+main h2 {
+   margin-left: 20px;
+}
+#skill,
+#Projects {
+   background: none;
+   padding: 0 5% 40px 5%;
+}
+#skillImg {
+   width: 45%;
+}
+#skillImg img {
+   width: 90%;
+}
+.svg {
+   position: absolute;
+   width: 50px !important;
+   animation: svg 1s ease 1s infinite alternate both;
+   &:hover {
+      animation-play-state: paused;
+   }
+}
+.html {
+   top: 70%;
+   left: 5%;
+}
+.css {
+   top: 0%;
+   left: 0%;
+}
+.js {
+   top: 71%;
+   left: 80%;
+}
+.skills {
+   width: 50%;
+}
+.skill-name {
+   font-size: 20px;
+   font-weight: 700;
+   color: #000;
+   text-transform: uppercase;
+   margin: 15px 0 5px 0;
+   display: flex;
+   align-items: center;
+}
+.skill-name img {
+   width: 40px;
+   height: 40px;
+   z-index: 2;
+   margin-right: 10px;
+   position: relative;
+}
+
+.skill-bar {
+   height: 14px;
+   background: #282828;
+   border-radius: 3px;
+}
+
+.skill-per {
+   height: 14px;
+   background: #d13639;
+   border-radius: 3px;
+   position: relative;
+}
+.skill-per.two {
+   background-color: #00f;
+}
+.skill-per.three {
+   background-color: rgb(247, 223, 30);
+}
+.active {
+   animation: fillBars 2.5s 1;
+   animation-fill-mode: forwards;
+}
+
+.skill-per::before {
+   content: attr(per);
+   position: absolute;
+   padding: 4px 6px;
+   background: #f1f1f1;
+   border-radius: 4px;
+   font-size: 12px;
+   top: 15px;
+   right: 0;
+   transform: translateX(50%);
+   z-index: 1;
+}
+
+.skill-per::after {
+   content: "";
+   position: absolute;
+   width: 10px;
+   height: 10px;
+   background: #f1f1f1;
+   top: 10px;
+   right: 0;
+   transform: translateX(50%) rotate(45deg);
+   border-radius: 2px;
+}
+
+@keyframes fillBars {
+   from {
+      width: 0;
+   }
+   to {
+      width: 100%;
+   }
+}
+/* projects */
+#Projects {
+   flex-flow: row wrap;
+   gap: 30px 20px;
+   justify-content: space-evenly;
+}
+.project {
+   width: 285px;
+   background-color: gainsboro;
+   padding: 20px 10px;
+   border-radius: 10px;
+}
+.project a{
+   border: 0px solid red;
+  transition: border-bottom .3s ease-out;
+   
+}
+.project a:hover{
+   border-bottom: 40px solid red;
+}
+.project *{
+   color: #000;
+}
+.projectsImg {
+   border-radius: 10px 0;
+}
+.projectsImg img{
+   width: 100%;
+}
+#Projects h3 {
+   margin: 5px 0;
+   font-size: 20px;
+}
+#Projects p {
+   font-size: 17px;
+   margin: 10px 0;
+}
+.project a{
+   display: block;
+   background: blue;
+   border-radius: 5px;
+   width: 200px;
+   height: 40px;
+   text-align: center;
+   line-height: 40px;
+   font-size: 22px;
+   margin: 0 auto;
+   padding: 0;
+}
+/* footer */
+footer{
+   margin: 50px 0;
+}
+footer a{
+   padding: 7px 20px;
+}
+footer h2{
+   text-align: center;
+   font-size: 40px;
+}
+#contact{
+   padding: 0 5% 40px 5%;
+}
+#rellinks, #rellinks a{
+   display: flex;
+   justify-content: center;
+   align-items: baseline;
+   flex-flow: row wrap;
+   gap: 30px;
+   font-size: 25px;
+}
+#rellinks a{
+   color: #000;
+   gap: 10px;
+   align-items: center;
+}
+#rellinks strong{
+   font-size: 40px;
+   user-select: none;
+}
+#rellinks img{
+   width: 30px;
+   height: 30px;
+   user-select: none;
+}
+#copywrite{
+   margin: 0 10px;
+}
+/* media */
+@media screen and (min-width: 1500px){
+   aside{
+      position: absolute;
+      left: 10px;
+   }
+}
+@media screen and (min-width: 700px) {
+   #myImg {
+      order: 2;
+   }
+   #myIntroduce {
+      order: 1;
+   }
+}
+@media screen and (max-width: 700px) {
+   #introduce {
+      flex-flow: column nowrap;
+      justify-content: center;
+      overflow: auto;
+      height: 100vh;
+      border-radius: 0;
+      min-height: 650px;
+      background: radial-gradient(
+         circle at 50% 76%,
+         rgba(203, 203, 203, 1) 14%,
+         rgba(24, 32, 49, 1) 100%
+      );
+   }
+   #introduce > * {
+      width: 100%;
+   }
+   #introduce * {
+      text-align: center;
+   }
+   #introduce br {
+      display: none;
+   }
+   #myImg {
+      width: fit-content;
+      margin: 5px auto;
+   }
+   #myImg img {
+      max-width: 300px;
+   }
+   #youNeed {
+      justify-content: center;
+   }
+   #skill {
+      display: block;
+   }
+   #skill > * {
+      display: block;
+      width: 100%;
+   }
+   .project {
+      width: 100%;
+   }
+}
+@media screen and (max-width: 500px) {
+   h1 {
+      font-size: 31px;
+   }
+   #rellinks a{
+      flex-direction: column;
+   }
+   #myIntroduce p {
+      font-size: 18px;
+   }
+   #myIntroduce span {
+      font-size: 20px;
+   }
+   #youNeed {
+      display: block;
+   }
+   #youNeed a {
+      margin: 20px 0;
+   }
+}
