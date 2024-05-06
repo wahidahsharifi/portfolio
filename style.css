@@ -78,7 +78,9 @@ h1 {
    margin: 10px 0;
 }
 #youNeed a {
-   display: block;
+   display: flex;
+   align-items: center;
+   gap: 10px;
    background-color: #00f;
    padding: 10px 20px;
    border-radius: 20px;
@@ -88,6 +90,9 @@ h1 {
    &:hover {
       background-color: rgb(95 95 255);
    }
+}
+#youNeed img{
+   fill: green;
 }
 /* skills */
 main h2 {
