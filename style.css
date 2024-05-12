@@ -1,9 +1,44 @@
+:root {
+   --bgColorTop: radial-gradient(
+      circle at 25% 50%,
+      rgb(253 255 0) 0%,
+      rgb(255 206 69) 50%
+   );
+   --bgColor: #fff;
+   --textColor: #000;
+   --aHover: #dcdcdc;
+}
+.photo{
+   filter: brightness(0);
+}
+/* theme */
+@media screen and (prefers-color-scheme: dark) {
+   :root {
+      --bgColorTop: radial-gradient(
+         circle at 25% 50%,
+         rgb(96, 96, 96) 14%,
+         rgba(24, 32, 49, 1) 100%
+      );
+      --bgColor: #000;
+      --textColor: #fff;
+      --aHover: #555050;
+   }
+   .photo{
+      filter: brightness(1);
+   }
+}
 html {
    font-family: "Sans-serif", "Lucida Sans Regular", "Lucida Grande",
       "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
 }
+* {
+   box-sizing: border-box;
+   color: var(--textColor);
+   transition: all 0.5s ease;
+}
 body {
    margin: 0;
+   background-color: var(--bgColor);
 }
 main {
    max-width: 1000px;
@@ -11,15 +46,11 @@ main {
 }
 a {
    text-decoration: none;
-   color: #00f;
    transition: border 100ms ease;
 }
-a:hover{
-   background-color: gainsboro;
+a:hover {
+   background-color: var(--aHover);
    border-radius: 10px;
-}
-* {
-   box-sizing: border-box;
 }
 /* introduce */
 h1 {
@@ -36,11 +67,7 @@ h1 {
    justify-content: space-between;
    width: 100%;
    padding: 20px 5%;
-   background: radial-gradient(
-      circle at 25% 50%,
-      rgba(203, 203, 203, 1) 14%,
-      rgba(24, 32, 49, 1) 100%
-   );
+   background: var(--bgColorTop);
    border-radius: 30px;
 }
 #myImg,
@@ -71,28 +98,36 @@ h1 {
    font-size: 20px;
    margin-top: 20px;
 }
+.blue{
+   color: #00f;
+}
 #youNeed {
    display: flex;
    justify-content: flex-start;
    gap: 10px;
    margin: 10px 0;
 }
-#youNeed a {
+#youNeed * {
    display: flex;
    align-items: center;
    gap: 10px;
-   background-color: #00f;
+   background-color: var(--bgColor);
    padding: 10px 20px;
    border-radius: 20px;
-   color: #000;
+   color: var(--textColor);
    user-select: none;
    border: none;
    &:hover {
-      background-color: rgb(95 95 255);
+      background-color: rgb(121, 121, 243);
    }
 }
-#youNeed img{
-   fill: green;
+#mode{
+   width: 30px;
+   height: 30px;
+   background-color: var(--textColor);
+   &:hover{
+      background-color: var(--textColor);
+   }
 }
 /* skills */
 main h2 {
@@ -135,7 +170,7 @@ main h2 {
 .skill-name {
    font-size: 20px;
    font-weight: 700;
-   color: #000;
+   color: var(--textColor);
    text-transform: uppercase;
    margin: 15px 0 5px 0;
    display: flex;
@@ -160,6 +195,7 @@ main h2 {
    background: #d13639;
    border-radius: 3px;
    position: relative;
+   color: #000;
 }
 .skill-per.two {
    background-color: #00f;
@@ -213,25 +249,24 @@ main h2 {
 }
 .project {
    width: 285px;
-   background-color: gainsboro;
+   background-color: var(--aHover);
    padding: 20px 10px;
    border-radius: 10px;
 }
-.project a{
+.project a {
    border: 0px solid red;
-  transition: border-bottom .3s ease-out;
-   
+   transition: border-bottom 0.3s ease-out;
 }
-.project a:hover{
+.project a:hover {
    border-bottom: 40px solid red;
 }
-.project *{
-   color: #000;
+.project * {
+   color: var(--textColor);
 }
 .projectsImg {
    border-radius: 10px 0;
 }
-.projectsImg img{
+.projectsImg img {
    width: 100%;
 }
 #Projects h3 {
@@ -242,7 +277,7 @@ main h2 {
    font-size: 17px;
    margin: 10px 0;
 }
-.project a{
+.project a {
    display: block;
    background: blue;
    border-radius: 5px;
@@ -255,20 +290,21 @@ main h2 {
    padding: 0;
 }
 /* footer */
-footer{
+footer {
    margin: 50px 0;
 }
-footer a{
+footer a {
    padding: 7px 20px;
 }
-footer h2{
+footer h2 {
    text-align: center;
    font-size: 40px;
 }
-#contact{
+#contact {
    padding: 0 5% 40px 5%;
 }
-#rellinks, #rellinks a{
+#rellinks,
+#rellinks a {
    display: flex;
    justify-content: center;
    align-items: baseline;
@@ -276,26 +312,26 @@ footer h2{
    gap: 30px;
    font-size: 25px;
 }
-#rellinks a{
-   color: #000;
+#rellinks a {
+   color: var(--textColor);
    gap: 10px;
    align-items: center;
 }
-#rellinks strong{
+#rellinks strong {
    font-size: 40px;
    user-select: none;
 }
-#rellinks img{
+#rellinks img {
    width: 30px;
    height: 30px;
    user-select: none;
 }
-#copywrite{
+#copywrite {
    margin: 0 10px;
 }
 /* media */
-@media screen and (min-width: 1500px){
-   aside{
+@media screen and (min-width: 1500px) {
+   aside {
       position: absolute;
       left: 10px;
    }
@@ -316,11 +352,6 @@ footer h2{
       height: 100vh;
       border-radius: 0;
       min-height: 650px;
-      background: radial-gradient(
-         circle at 50% 76%,
-         rgba(203, 203, 203, 1) 14%,
-         rgba(24, 32, 49, 1) 100%
-      );
    }
    #introduce > * {
       width: 100%;
@@ -356,7 +387,7 @@ footer h2{
    h1 {
       font-size: 31px;
    }
-   #rellinks a{
+   #rellinks a {
       flex-direction: column;
    }
    #myIntroduce p {
@@ -364,11 +395,5 @@ footer h2{
    }
    #myIntroduce span {
       font-size: 20px;
-   }
-   #youNeed {
-      display: block;
-   }
-   #youNeed a {
-      margin: 20px 0;
    }
 }
