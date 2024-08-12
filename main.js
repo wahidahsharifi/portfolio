@@ -20,7 +20,7 @@ themeBtn.addEventListener("click", () => {
         "--bgColorTop": "radial-gradient(circle at 25% 50%, rgb(253 255 0) 0%, rgb(255 206 69) 50%)",
         "--bgColor": "#fff",
         "--textColor": "#000",
-        "--aHover": "#dcdcdc",
+        "--aHover": "#f0ecec",
     } : {
         "--bgColorTop": "radial-gradient(circle at 25% 50%, rgba(96, 96, 96, 1) 14%, rgba(24, 32, 49, 1) 100%)",
         "--bgColor": "#000",

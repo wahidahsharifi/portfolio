@@ -6,7 +6,7 @@
    );
    --bgColor: #fff;
    --textColor: #000;
-   --aHover: #dcdcdc;
+   --aHover: #f0ecec;
 }
 .photo{
    filter: brightness(0);
@@ -27,9 +27,16 @@
       filter: brightness(1);
    }
 }
+@media (hover: none) and (pointer: coarse) {
+   #rellinks a {
+      border: 1px dotted red;
+      border-radius: 20px;
+   }
+}
 html {
    font-family: "Sans-serif", "Lucida Sans Regular", "Lucida Grande",
       "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+   font-size: 10px;
 }
 * {
    box-sizing: border-box;
@@ -41,8 +48,9 @@ body {
    background-color: var(--bgColor);
 }
 main {
-   max-width: 1000px;
+   max-width: 2000px;
    margin: 0 auto;
+   overflow-x: hidden;
 }
 a {
    text-decoration: none;
@@ -54,9 +62,9 @@ a:hover {
 }
 /* introduce */
 h1 {
-   line-height: 40px;
-   font-size: 50px;
+   font-size: clamp(35px, 7vw, 140px);
    margin: 0;
+   margin-bottom: -20px;
 }
 #introduce,
 #skill,
@@ -68,7 +76,10 @@ h1 {
    width: 100%;
    padding: 20px 5%;
    background: var(--bgColorTop);
-   border-radius: 30px;
+}
+#introduce {
+   height: 100svh;
+   min-height: 400px;
 }
 #myImg,
 #skillImg {
@@ -78,6 +89,7 @@ h1 {
 }
 #myImg img {
    width: 100%;
+   aspect-ratio: 1/1;
 }
 @keyframes svg {
    0% {
@@ -91,11 +103,11 @@ h1 {
    width: 60%;
 }
 #myIntroduce span {
-   font-size: 25px;
+   font-size: clamp(25px, 5vw, 100px);
 }
 #myIntroduce p {
    margin: 0;
-   font-size: 20px;
+   font-size: clamp(20px, 2.5vw, 50px);
    margin-top: 20px;
 }
 .blue{
@@ -107,13 +119,13 @@ h1 {
    gap: 10px;
    margin: 10px 0;
 }
-#youNeed * {
+#youNeed > * {
    display: flex;
    align-items: center;
    gap: 10px;
    background-color: var(--bgColor);
    padding: 10px 20px;
-   border-radius: 20px;
+   border-radius: 12px;
    color: var(--textColor);
    user-select: none;
    border: none;
@@ -124,6 +136,7 @@ h1 {
 #mode{
    width: 30px;
    height: 30px;
+   border-radius: 100%;
    background-color: var(--textColor);
    &:hover{
       background-color: var(--textColor);
@@ -178,7 +191,7 @@ main h2 {
 }
 .skill-name img {
    width: 40px;
-   height: 40px;
+   aspect-ratio: 1/1;
    z-index: 2;
    margin-right: 10px;
    position: relative;
@@ -246,15 +259,21 @@ main h2 {
    flex-flow: row wrap;
    gap: 30px 20px;
    justify-content: space-evenly;
+   align-items: stretch;
 }
 .project {
-   width: 285px;
+   display: flex;
+   flex-flow: column nowrap;
+   justify-content: space-between;
+   width: 30%;
+   min-width: 285px;
    background-color: var(--aHover);
    padding: 20px 10px;
    border-radius: 10px;
 }
 .project a {
    border: 0px solid red;
+   color: #fff;
    transition: border-bottom 0.3s ease-out;
 }
 .project a:hover {
@@ -268,6 +287,7 @@ main h2 {
 }
 .projectsImg img {
    width: 100%;
+   aspect-ratio: 16/9;
 }
 #Projects h3 {
    margin: 5px 0;
@@ -323,20 +343,85 @@ footer h2 {
 }
 #rellinks img {
    width: 30px;
-   height: 30px;
+   aspect-ratio: 1/1;
    user-select: none;
+}
+#rellinks img[src*="X.webp"] {
+   width: 21px;
+}
+#rellinks a[href*="x.com"] {
+   transform: translateY(-5px);
+}
+#rellinks img[src*="description.svg"] {
+   width: 24px;
+}
+#rellinks a[href*="read.cv"] {
+   transform: translateY(-3px);
+}
+#rellinks img[src*="LinkedIn.svg"] {
+   width: 21px;
+}
+#rellinks a[href*="linkden.com"] {
+   transform: translateY(-4px);
 }
 #copywrite {
    margin: 0 10px;
 }
 /* media */
-@media screen and (min-width: 1500px) {
-   aside {
-      position: absolute;
-      left: 10px;
+@media screen and (min-height: 1000px) {
+   #introduce {
+      height: max-content;
+      border-bottom-left-radius: 30px;
+      border-bottom-right-radius: 30px;
    }
 }
-@media screen and (min-width: 700px) {
+@media screen and (min-width: 1000px) {
+   #youNeed > * {
+      padding: 15px 25px;
+      font-size: 40px;
+   }
+   #mode {
+      width: 40px;
+      height: 40px;
+   }
+   .skills {
+      display: flex;
+      flex-flow: column nowrap;
+      gap: 35px;
+   }
+   .skill-name {
+      font-size: 30px;
+   }
+   .skill-name img {
+      width: 50px;
+   }
+   .skill-bar {
+      height: 20px;
+   }
+   .skill-per {
+      height: 20px;
+   }
+}
+@media screen and (min-width: 1500px) {
+   #youNeed {
+      gap: 30px;
+      margin-top: 30px;
+   }
+   #myIntroduce #youNeed > * {
+      font-size: 40px;
+      padding: 25px 35px;
+   }
+   .skills {
+      gap: 60px;
+   }
+}
+@media screen and (min-width: 701px) {
+   main > h2 {
+      font-size: 30px;
+   }
+   #youNeed * {
+      font-size: 30px;
+   }
    #myImg {
       order: 2;
    }
@@ -356,6 +441,9 @@ footer h2 {
    #introduce > * {
       width: 100%;
    }
+   h1 {
+      margin-bottom: -5px;
+   }
    #introduce * {
       text-align: center;
    }
@@ -372,6 +460,9 @@ footer h2 {
    #youNeed {
       justify-content: center;
    }
+   #youNeed > * {
+      font-size: 2rem;
+   }
    #skill {
       display: block;
    }
@@ -382,18 +473,25 @@ footer h2 {
    .project {
       width: 100%;
    }
+   #rellinks a {
+      width: 30%;
+      min-width: max-content;
+      flex-direction: column;
+   }
 }
 @media screen and (max-width: 500px) {
-   h1 {
-      font-size: 31px;
-   }
    #rellinks a {
       flex-direction: column;
    }
-   #myIntroduce p {
-      font-size: 18px;
+   .project {
+      width: 100%;
+      min-width: 100px;
    }
-   #myIntroduce span {
-      font-size: 20px;
+   #rellinks {
+      flex-direction: column;
+   }
+   #rellinks a {
+      flex-direction: row;
+      width: 100%;
    }
 }
