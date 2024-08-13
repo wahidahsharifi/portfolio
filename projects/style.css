@@ -1,0 +1,91 @@
+:root {
+   --bgColor: #ffb300;
+   --textColor: #000;
+}
+/* theme */
+@media screen and (prefers-color-scheme: dark) {
+   :root {
+      --bgColor: radial-gradient(
+         circle at 25% 50%,
+         rgb(96, 96, 96) 14%,
+         rgba(24, 32, 49, 1) 100%
+      );
+      --textColor: #fff;
+   }
+}
+html {
+   font-family: "Sans-serif", "Lucida Sans Regular", "Lucida Grande",
+      "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+   font-size: 10px;
+}
+* {
+   box-sizing: border-box;
+   color: var(--textColor);
+}
+body {
+   margin: 0;
+   background: var(--bgColor);
+}
+main {
+   max-width: 2000px;
+   margin: 0 auto;
+}
+h1 {
+   text-align: center;
+   font-size: clamp(20px, 7vw, 50px);
+}
+/* introduce */
+#Projects {
+   display: flex;
+   flex-flow: row wrap;
+   width: 100%;
+   padding: 20px 5%;
+   background: var(--bgColor);
+   gap: 30px 20px;
+   justify-content: space-evenly;
+   align-content: start;
+   align-items: stretch;
+   padding: 0 5% 40px 5%;
+}
+.project {
+   display: flex;
+   flex-flow: column wrap;
+   justify-content: space-between;
+   width: clamp(300px, 90vw, 600px);
+   background-color: rgb(255, 212, 170);
+   padding: 0 0 20px 0;
+   border-radius: 10px;
+}
+.project * {
+   color: var(--textColor);
+}
+.projectsImg {
+   border-radius: 10px 0;
+}
+#Projects .project a:first-child{
+   margin: 0;
+}
+#Projects .project a:first-child:hover + a{
+   color: #00f;
+   text-decoration: none;
+}
+.project a:first-child ~ * {
+   padding-inline: 10px;
+}
+img {
+   width: 100%;
+   aspect-ratio: 16/9;
+   border-radius: 10px 10px 0 0;
+}
+#Projects a {
+   margin: 15px 0 10px 0;
+   font-size: 22px;
+}
+#Projects a:hover{
+   color: #00f;
+   text-decoration: none;
+}
+#Projects p {
+   font-size: 17px;
+   margin: 10px 0;
+}

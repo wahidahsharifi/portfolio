@@ -1,0 +1,9 @@
+{
+   "redirects": [
+      {
+         "source": "/projects/index.html",
+         "destination": "/projects",
+         "permanent": true
+      }
+   ]
+}

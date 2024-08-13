@@ -145,6 +145,7 @@ h1 {
 /* skills */
 main h2 {
    margin-left: 20px;
+   font-size: clamp(25px, 5vw, 30px);
 }
 #skill,
 #Projects {
@@ -416,9 +417,6 @@ footer h2 {
    }
 }
 @media screen and (min-width: 701px) {
-   main > h2 {
-      font-size: 30px;
-   }
    #youNeed * {
       font-size: 30px;
    }
