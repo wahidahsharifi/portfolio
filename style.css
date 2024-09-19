@@ -7,6 +7,7 @@
    --bgColor: #fff;
    --textColor: #000;
    --aHover: #f0ecec;
+   --link: #00f;
 }
 .photo{
    filter: brightness(0);
@@ -17,14 +18,18 @@
       --bgColorTop: radial-gradient(
          circle at 25% 50%,
          rgb(96, 96, 96) 14%,
-         rgba(24, 32, 49, 1) 100%
+         #1d1836 100%
       );
       --bgColor: #000;
       --textColor: #fff;
-      --aHover: #555050;
+      --aHover: #1d1836;
+      --link: #ff0;
    }
    .photo{
       filter: brightness(1);
+   }
+   img{
+      filter: brightness(0.9);
    }
 }
 @media (hover: none) and (pointer: coarse) {
@@ -66,9 +71,7 @@ h1 {
    margin: 0;
    margin-bottom: -20px;
 }
-#introduce,
-#skill,
-#Projects {
+#introduce {
    display: flex;
    flex-flow: row nowrap;
    align-items: center;
@@ -81,8 +84,7 @@ h1 {
    height: 100svh;
    min-height: 400px;
 }
-#myImg,
-#skillImg {
+#myImg {
    width: 40%;
    align-self: center;
    position: relative;
@@ -111,7 +113,7 @@ h1 {
    margin-top: 20px;
 }
 .blue{
-   color: #00f;
+   color: var(--link);
 }
 #youNeed {
    display: flex;
@@ -147,45 +149,19 @@ main h2 {
    margin-left: 20px;
    font-size: clamp(25px, 5vw, 30px);
 }
-#skill,
-#Projects {
-   background: none;
-   padding: 0 5% 40px 5%;
+.skills{
+   display: grid;
+   grid-template-columns: 1fr 1fr;
+   gap: 20px 50px;
+   padding: 20px;
 }
-#skillImg {
-   width: 45%;
-}
-#skillImg img {
-   width: 90%;
-}
-.svg {
-   position: absolute;
-   width: 50px !important;
-   animation: svg 1s ease 1s infinite alternate both;
-   &:hover {
-      animation-play-state: paused;
-   }
-}
-.html {
-   top: 70%;
-   left: 5%;
-}
-.css {
-   top: 0%;
-   left: 0%;
-}
-.js {
-   top: 71%;
-   left: 80%;
-}
-.skills {
-   width: 50%;
+.skill {
+   width: 100%;
 }
 .skill-name {
    font-size: 20px;
    font-weight: 700;
    color: var(--textColor);
-   text-transform: uppercase;
    margin: 15px 0 5px 0;
    display: flex;
    align-items: center;
@@ -211,11 +187,35 @@ main h2 {
    position: relative;
    color: #000;
 }
+div.full.full {
+   &::before{
+      transform: translateX(0);
+      top: -5px;
+      padding: 0;
+      border-radius: 2px;
+      font-weight: 900;
+      font-size: 22px;
+      padding: 0 10px;
+      color: green;
+   }
+   &::after{
+      display: none;
+   }
+}
 .skill-per.two {
    background-color: #00f;
 }
 .skill-per.three {
    background-color: rgb(247, 223, 30);
+}
+.skill-per.four{
+   background-color: rgb(240, 60, 46);
+}
+.skill-per.five{
+   background-color: rgb(74, 149, 246);
+}
+.skill-per.six{
+   background-color: rgb(95, 160, 78);
 }
 .active {
    animation: fillBars 2.5s 1;
@@ -257,58 +257,139 @@ main h2 {
 }
 /* projects */
 #Projects {
-   flex-flow: row wrap;
+   display: grid;
+   grid-template-columns: repeat(3, 1fr);
+   justify-content: center;
    gap: 30px 20px;
-   justify-content: space-evenly;
-   align-items: stretch;
+   padding: 0 2%;
 }
 .project {
-   display: flex;
-   flex-flow: column nowrap;
-   justify-content: space-between;
-   width: 30%;
-   min-width: 285px;
    background-color: var(--aHover);
-   padding: 20px 10px;
+   padding: 10px;
    border-radius: 10px;
-}
-.project a {
-   border: 0px solid red;
-   color: #fff;
-   transition: border-bottom 0.3s ease-out;
-}
-.project a:hover {
-   border-bottom: 40px solid red;
 }
 .project * {
    color: var(--textColor);
 }
 .projectsImg {
    border-radius: 10px 0;
+   perspective: 1000px;
 }
 .projectsImg img {
    width: 100%;
    aspect-ratio: 16/9;
+   border-radius: 5px 5px 0 0;
+   transition: transform 0.1s ease-out;
+   transform-origin: center;
 }
 #Projects h3 {
    margin: 5px 0;
    font-size: 20px;
+   padding-top: 5px;
 }
-#Projects p {
-   font-size: 17px;
+#Projects h3 a:hover{
+   text-decoration: underline;
+}
+section#Projects#Projects p {
+   padding: 0;
    margin: 10px 0;
 }
-.project a {
-   display: block;
-   background: blue;
+/* education */
+.educations{
+   position: relative;
+   left: 60px;
+   padding-left: 30px;
+}
+.educations::before{
+   content: "";
+    position: absolute;
+    top: 0;
+    left: -18px;
+    height: 100%;
+    width: 4px;
+    background: var(--textColor);
+}
+.demo {
+   position: absolute;
+   left: -70px;
+   top: 0;
+   width: 50px;
+   height: 50px;
+   border: 3px solid var(--textColor);
+   background-color: var(--bgColor);
+   border-radius: 100%;
+   overflow: hidden;
+}
+.demo.firs{
+   border: none;
+}
+.demo img{
+   width: 100%;
+   height: 100%;
+   object-fit: contain;
+}
+.demo.ejs{
+   background-color: #f7df1e;
+}
+.ejs img{
+   object-position: -7px -13px;
+}
+.sticky{
+   position: fixed;
+   top: 10px;
+   left: 20px;
+}
+.demo .shayh{
+   scale: 1.4;
+}
+.educateContent{
+   position: relative;
    border-radius: 5px;
-   width: 200px;
-   height: 40px;
-   text-align: center;
-   line-height: 40px;
-   font-size: 22px;
-   margin: 0 auto;
-   padding: 0;
+   width: min(87%, 700px);
+   padding: 16px;
+   background-color: var(--aHover);
+   margin-bottom: 20px;
+}
+.educateContent::before{
+   content: "";
+   position: absolute;
+   left: -5px;
+   top: 14px;
+   width: 20px;
+   height: 20px;
+   transform: rotate(45deg);
+   background-color: var(--aHover);
+}
+.educateContent *{
+   transition: all 0s ease;
+}
+.educateContent h3, #Projects h3{
+   font-size: 26px;
+   margin: 0;
+   z-index: 2;
+   position: relative;
+}
+.educateContent span{
+   font-size: 18px;
+}
+.educateContent a{
+   display: block;
+   width: max-content;
+   padding: 5px 0;
+   &:hover{
+      text-decoration: underline;
+   }
+}
+.educateContent ul, #Projects p{
+   font-size: 16px;
+   line-height: 25px;
+   padding-left: 20px;
+}
+.educateContent ul li:not(li:last-of-type){
+   padding-bottom: 15px;
+}
+.date{
+   font-size: 16px;
 }
 /* footer */
 footer {
@@ -385,11 +466,6 @@ footer h2 {
       width: 40px;
       height: 40px;
    }
-   .skills {
-      display: flex;
-      flex-flow: column nowrap;
-      gap: 35px;
-   }
    .skill-name {
       font-size: 30px;
    }
@@ -402,6 +478,76 @@ footer h2 {
    .skill-per {
       height: 20px;
    }
+   #educations{
+      text-align: center;
+   }
+   .educations{
+      left: 50%;
+   }
+   .demo{
+      width: 70px;
+      height: 70px;
+      left: -88px;
+   }
+   .sticky{
+      left: calc(50% - 51px) !important;
+   }
+   .educateContent{
+      left: 10px;
+      width: 400px;
+      &::before{
+         top: 22px;
+      }
+   }
+   .educateContent h3, #Projects h3{
+      font-size: 30px;
+   }
+   .educateContent span{
+      font-size: 22px;
+   }
+   .educateContent ul, #Projects p{
+      font-size: 18px;
+   }
+   .date{
+      font-size: 20px;
+      position: absolute;
+      top: 20px;
+      right: 510px;
+      width: max-content;
+   }
+   .education:nth-child(odd) .educateContent{
+      left: -500px;
+      &>.demo{
+         left: 105%;
+      }
+      &>.date{
+         left: 510px;
+      }
+      
+      &::before{
+         left: 96%;
+      }
+   }
+}
+@media screen and (min-width: 1400px) {
+   .educateContent{
+      width: 600px;
+   }
+   .date{
+      right: 710px;
+   }
+   .education:nth-child(odd) .educateContent{
+      left: -697px;
+      &>.demo{
+         left: 102.5%;
+      }
+      &>.date{
+         left: 710px;
+      }
+      &::before{
+         left: 97.5%;
+      }
+   }
 }
 @media screen and (min-width: 1500px) {
    #youNeed {
@@ -411,9 +557,6 @@ footer h2 {
    #myIntroduce #youNeed > * {
       font-size: 40px;
       padding: 25px 35px;
-   }
-   .skills {
-      gap: 60px;
    }
 }
 @media screen and (min-width: 701px) {
@@ -425,6 +568,14 @@ footer h2 {
    }
    #myIntroduce {
       order: 1;
+   }
+}
+@media screen and (max-width: 1000px){
+   #Projects{
+      grid-template-columns: 1fr 1fr;
+   }
+   .project:last-child{
+      width: 204%;
    }
 }
 @media screen and (max-width: 700px) {
@@ -461,12 +612,26 @@ footer h2 {
    #youNeed > * {
       font-size: 2rem;
    }
-   #skill {
-      display: block;
+   .skills{
+      grid-template-columns: 1fr;
    }
-   #skill > * {
-      display: block;
-      width: 100%;
+   .skill:nth-child(1) {
+      order: 1;
+   }
+   .skill:nth-child(2) {
+      order: 4;
+   }
+   .skill:nth-child(3) {
+      order: 2;
+   }
+   .skill:nth-child(4) {
+      order: 5;
+   }
+   .skill:nth-child(5) {
+      order: 3;
+   }
+   .skill:nth-child(6) {
+      order: 6;
    }
    .project {
       width: 100%;
@@ -475,6 +640,37 @@ footer h2 {
       width: 30%;
       min-width: max-content;
       flex-direction: column;
+   }
+   #Projects{
+      grid-template-columns: 1fr;
+   }
+   .project:last-child{
+      width: 100%;
+   }
+}
+@media screen and (max-width: 600px) {
+   .educations{
+      left: 0;
+   }
+   .demo{
+      left: 15px;
+      top: -25px;
+   }
+   .sticky{
+      position: absolute;
+      left: 15px;
+      top: -25px;
+   }
+   .educateContent{
+      padding-top: 25px;
+      margin-top: 45px;
+      width: 95%;
+   }
+   .educateContent h3{
+      padding-top: 10px;
+   }
+   .educateContent::before{
+      display: none;
    }
 }
 @media screen and (max-width: 500px) {
