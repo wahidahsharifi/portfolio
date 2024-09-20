@@ -112,3 +112,47 @@ images.forEach((image) => {
       image.style.transform = "rotateX(0deg) rotateY(0deg)";
    });
 });
+
+/*
+    form
+*/
+
+const form = document.getElementById("form");
+
+form.addEventListener("submit", (e) => {
+   e.preventDefault();
+
+   var fullName = document.getElementById("fullName").value;
+   var email = document.getElementById("email").value;
+   var message = document.getElementById("message").value;
+
+   var token = "7438120045:AAH3APfum2yA2jWFj24ye4yteH3IDxy67RQ";
+   var chat_id = "-1002395572306";
+
+   var my_text = `Full Name: ${fullName}\nEmail: ${email}\nMessage: ${message}`;
+
+   var url = `https://api.telegram.org/bot${token}/sendMessage?chat_id=${chat_id}&text=${encodeURIComponent(
+      my_text
+   )}`;
+
+   let api = new XMLHttpRequest();
+   api.open("GET", url, true);
+
+   api.onload = function () {
+      if (api.status >= 200 && api.status < 300) {
+         alert("Message sent successfully!");
+      } else {
+         alert("Failed to send message. Please try again.");
+      }
+   };
+
+   api.onerror = function () {
+      alert(
+         "Failed to send message. Please check your internet connection and try again."
+      );
+   };
+
+   api.send();
+
+   form.reset();
+});

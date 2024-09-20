@@ -334,6 +334,9 @@ section#Projects#Projects p {
 .ejs img{
    object-position: -7px -13px;
 }
+.demo .cc{
+   filter: hue-rotate(200deg);
+}
 .sticky{
    position: fixed;
    top: 10px;
@@ -392,6 +395,105 @@ section#Projects#Projects p {
    font-size: 16px;
 }
 /* footer */
+
+
+form {
+   position: relative;
+   max-width: 400px;
+   margin: 50px auto;
+   padding: 20px;
+   background-color: #f9f9f9;
+   border-radius: 10px;
+   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+form label {
+   display: block;
+   width: max-content;
+   font-size: 16px;
+   margin-bottom: 8px;
+   color: #333;
+   background-color: #fff;
+   margin: 0;
+   position: absolute;
+   top: 0;
+   left: 28px;
+   transition: all 100ms linear;
+   user-select: none;
+   &:hover{
+      cursor: text;
+   }
+}
+form label[for="fullName"]{
+   top: 30px;
+}
+form label[for="email"]{
+   top: 90px;
+}
+form label[for="message"]{
+   top: 150px;
+}
+
+.input {
+   width: 100%;
+   padding: 10px;
+   margin-bottom: 20px;
+   border: 1px solid #ccc;
+   border-radius: 5px;
+   font-size: 16px;
+   box-sizing: border-box;
+   transition: border-color 0.3s ease;
+}
+
+.input:focus + label,
+.input:valid + label{
+   font-size: 13px;
+   outline: none;
+}
+#fullName:focus + label,
+#fullName:valid + label{
+   top: 13px;
+}
+#email:focus + label,
+#email:valid + label{
+   top: 73px;
+}
+#message:focus + label,
+#message:valid + label{
+   top: 133px;
+}
+
+form input[type="submit"],
+form input[type="reset"] {
+   width: 48%;
+   padding: 10px;
+   background-color: #007bff;
+   color: white;
+   border: none;
+   border-radius: 5px;
+   cursor: pointer;
+   font-size: 16px;
+   transition: background-color 0.3s ease;
+}
+
+form input[type="submit"]:hover,
+form input[type="reset"]:hover {
+   background-color: #0056b3;
+}
+
+form input[type="reset"] {
+   background-color: #f44336;
+}
+
+form input[type="reset"]:hover {
+   background-color: #c0392b;
+}
+
+form textarea {
+   height: 100px;
+   resize: vertical;
+}
+
 footer {
    margin: 50px 0;
 }
