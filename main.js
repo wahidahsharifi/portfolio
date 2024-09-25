@@ -3,46 +3,39 @@
 */
 const rootTheme = document.querySelector(":root");
 const themeBtn = document.querySelector("#theme");
-const relImg = document.querySelectorAll(".photo");
-const projectImg = document.querySelectorAll(".projectsImg img");
 let isDarkTheme = false;
 
-const updateThemeProperties = (properties, imgFilter, imageFilter) => {
+const updateThemeProperties = (properties) => {
    Object.keys(properties).forEach((key) => {
       rootTheme.style.setProperty(key, properties[key]);
-   });
-   relImg.forEach((img) => {
-      img.style.filter = imgFilter;
-   });
-   projectImg.forEach((image) => {
-      image.style.filter = imageFilter;
    });
 };
 
 themeBtn.addEventListener("click", () => {
    const themeProperties = isDarkTheme
       ? {
-           "--bgColorTop":
-              "radial-gradient(circle at 25% 50%, rgb(253 255 0) 0%, rgb(255 206 69) 50%)",
-           "--bgColor": "#fff",
+           "--bgColor": "#faf7e9",
            "--textColor": "#000",
-           "--aHover": "#f0ecec",
+           "--aHover": "#ebebebcc",
            "--link": "#00f",
+           "--invert": "1",
+           "--brightness": "0",
+           "--brighten": "1",
         }
       : {
-           "--bgColorTop":
-              "radial-gradient(circle at 25% 50%, rgba(96, 96, 96, 1) 14%, #1d1836 100%)",
-           "--bgColor": "#000",
+           "--bgColor": "#050816",
            "--textColor": "#fff",
-           "--aHover": "#1d1836",
+           "--aHover": "#332d51cf",
            "--link": "#ff0",
+           "--invert": "0",
+           "--brightness": "1",
+           "--brighten": "0.9",
         };
-   const imgFilter = isDarkTheme ? "brightness(0)" : "brightness(1)";
-   const imageFilter = isDarkTheme ? "brightness(1)" : "brightness(0.9)";
 
-   updateThemeProperties(themeProperties, imgFilter, imageFilter);
+   updateThemeProperties(themeProperties);
    isDarkTheme = !isDarkTheme;
 });
+
 /*
    skill bar
 */
@@ -105,7 +98,7 @@ images.forEach((image) => {
       const rotateX = (y - centerY) / 40;
       const rotateY = (x - centerX) / 40;
 
-      image.style.transform = `rotateX(${-rotateX}deg) rotateY(${rotateY}deg)`;
+      image.style.transform = `rotateX(${+rotateX}deg) rotateY(${-rotateY}deg)`;
    });
 
    image.addEventListener("mouseleave", () => {

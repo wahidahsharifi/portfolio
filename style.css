@@ -1,35 +1,28 @@
 :root {
-   --bgColorTop: radial-gradient(
-      circle at 25% 50%,
-      rgb(253 255 0) 0%,
-      rgb(255 206 69) 50%
-   );
-   --bgColor: #fff;
+   --bgColor: #faf7e9;
    --textColor: #000;
-   --aHover: #f0ecec;
+   --aHover: #ebebebcc;
    --link: #00f;
+   --invert: 1;
+   --brightness: 0;
+   --brighten: 1;
 }
 .photo{
-   filter: brightness(0);
+   filter: brightness(var(--brightness));
+}
+img{
+   filter: brightness(var(--brighten));
 }
 /* theme */
 @media screen and (prefers-color-scheme: dark) {
    :root {
-      --bgColorTop: radial-gradient(
-         circle at 25% 50%,
-         rgb(96, 96, 96) 14%,
-         #1d1836 100%
-      );
-      --bgColor: #000;
+      --bgColor: #050816;
       --textColor: #fff;
-      --aHover: #1d1836;
+      --aHover: #332d51cf;
       --link: #ff0;
-   }
-   .photo{
-      filter: brightness(1);
-   }
-   img{
-      filter: brightness(0.9);
+      --invert: 0;
+      --brightness: 1;
+      --brighten: 0.9;
    }
 }
 @media (hover: none) and (pointer: coarse) {
@@ -46,7 +39,6 @@ html {
 * {
    box-sizing: border-box;
    color: var(--textColor);
-   transition: all 0.5s ease;
 }
 body {
    margin: 0;
@@ -78,7 +70,21 @@ h1 {
    justify-content: space-between;
    width: 100%;
    padding: 20px 5%;
-   background: var(--bgColorTop);
+}
+body::before {
+   content: "";
+   position: fixed;
+   top: 0;
+   left: 0;
+   width: 100%;
+   height: 100%;
+   background-image: url('file/img/herobg.webp');
+   background-size: cover;
+   background-attachment: fixed;
+   background-position: center;
+   background-repeat: no-repeat;
+   filter: invert(var(--invert));
+   z-index: -1; /* Ensure the background is behind the content */
 }
 #introduce {
    height: 100svh;
@@ -125,7 +131,7 @@ h1 {
    display: flex;
    align-items: center;
    gap: 10px;
-   background-color: var(--bgColor);
+   background-color: var(--aHover);
    padding: 10px 20px;
    border-radius: 12px;
    color: var(--textColor);
@@ -261,7 +267,7 @@ div.full.full {
    grid-template-columns: repeat(3, 1fr);
    justify-content: center;
    gap: 30px 20px;
-   padding: 0 2%;
+   padding: 0 15px;
 }
 .project {
    background-color: var(--aHover);
@@ -396,13 +402,12 @@ section#Projects#Projects p {
 }
 /* footer */
 
-
 form {
    position: relative;
    max-width: 400px;
-   margin: 50px auto;
+   margin: 0 0 0 20px;
    padding: 20px;
-   background-color: #f9f9f9;
+   background-color: var(--aHover);
    border-radius: 10px;
    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
@@ -412,14 +417,15 @@ form label {
    width: max-content;
    font-size: 16px;
    margin-bottom: 8px;
-   color: #333;
-   background-color: #fff;
+   color: var(--textColor);
+   background-color: var(--aHover);
    margin: 0;
    position: absolute;
    top: 0;
    left: 28px;
    transition: all 100ms linear;
    user-select: none;
+   backdrop-filter: blur(30px);
    &:hover{
       cursor: text;
    }
@@ -438,6 +444,7 @@ form label[for="message"]{
    width: 100%;
    padding: 10px;
    margin-bottom: 20px;
+   background-color: var(--aHover);
    border: 1px solid #ccc;
    border-radius: 5px;
    font-size: 16px;
@@ -467,22 +474,17 @@ form input[type="submit"],
 form input[type="reset"] {
    width: 48%;
    padding: 10px;
-   background-color: #007bff;
-   color: white;
-   border: none;
+   background-color: var(--aHover);
+   color: var(--textColor);
+   border: 1px solid #ccc;
    border-radius: 5px;
    cursor: pointer;
    font-size: 16px;
    transition: background-color 0.3s ease;
 }
 
-form input[type="submit"]:hover,
-form input[type="reset"]:hover {
+form input[type="submit"]:hover {
    background-color: #0056b3;
-}
-
-form input[type="reset"] {
-   background-color: #f44336;
 }
 
 form input[type="reset"]:hover {
@@ -506,6 +508,14 @@ footer h2 {
 }
 #contact {
    padding: 0 5% 40px 5%;
+   display: flex;
+   flex-flow: row-reverse nowrap;
+   flex-wrap: nowrap;
+   align-items: stretch;
+   justify-content: center;
+}
+div#rellinks{
+   flex-direction: column;
 }
 #rellinks,
 #rellinks a {
@@ -513,7 +523,9 @@ footer h2 {
    justify-content: center;
    align-items: baseline;
    flex-flow: row wrap;
-   gap: 30px;
+   justify-content: flex-start;
+   gap: 10px;
+   width: 450px;
    font-size: 25px;
 }
 #rellinks a {
@@ -529,6 +541,9 @@ footer h2 {
    width: 30px;
    aspect-ratio: 1/1;
    user-select: none;
+}
+#rellinks img[src*="X.webp"]::after{
+   content: "fuck ou";
 }
 #rellinks img[src*="X.webp"] {
    width: 21px;
@@ -629,6 +644,47 @@ footer h2 {
       &::before{
          left: 96%;
       }
+   }
+   #rellinks a span:first-of-type{
+      display: none;
+   }
+   form{
+      max-width: 700px;
+   }
+   input.input{
+      width: 49.7%;
+   }
+   textarea.input{
+      height: 150px;
+   }
+   #email + label{
+      top: 30px;
+      left: 51.5%;
+   }
+   #email:focus + label,
+   #email:valid + label{
+      top: 13px;
+   }
+   #message + label{
+      top: 89.5px;
+   }
+   #message:focus + label,
+   #message:valid + label{
+      top: 72px;
+   }
+   form input[type="submit"], form input[type="reset"]{
+      width: 49.7%;
+   }
+}
+@media screen and (max-width: 1180px) {
+   #rellinks a span:first-of-type{
+      display: block;
+   }
+   #rellinks a span:last-of-type{
+      display: none;
+   }
+   #rellinks, #rellinks a{
+      max-width: 300px;
    }
 }
 @media screen and (min-width: 1400px) {
@@ -738,10 +794,19 @@ footer h2 {
    .project {
       width: 100%;
    }
-   #rellinks a {
-      width: 30%;
+   #contact{
+      flex-flow: column nowrap;
+   }
+   form{
+      width: 100%;
+      max-width: 100%;
+      margin: 0 0 50px 0;
+   }
+   #rellinks, #rellinks a {
+      width: 100%;
       min-width: max-content;
-      flex-direction: column;
+      max-width: 100%;
+      gap: 20px;
    }
    #Projects{
       grid-template-columns: 1fr;
@@ -753,6 +818,8 @@ footer h2 {
 @media screen and (max-width: 600px) {
    .educations{
       left: 0;
+      padding-left: 0;
+      margin: 0 15px;
    }
    .demo{
       left: 15px;
@@ -766,7 +833,7 @@ footer h2 {
    .educateContent{
       padding-top: 25px;
       margin-top: 45px;
-      width: 95%;
+      width: 100%;
    }
    .educateContent h3{
       padding-top: 10px;
@@ -776,15 +843,9 @@ footer h2 {
    }
 }
 @media screen and (max-width: 500px) {
-   #rellinks a {
-      flex-direction: column;
-   }
    .project {
       width: 100%;
       min-width: 100px;
-   }
-   #rellinks {
-      flex-direction: column;
    }
    #rellinks a {
       flex-direction: row;
