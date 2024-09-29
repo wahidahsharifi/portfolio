@@ -1,270 +1,528 @@
 <!DOCTYPE html>
 <html lang="en">
+   <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <meta
+         name="google-site-verification"
+         content="Knlzw3hwcTCaJVCHFCNdJtELsUjP14EXbvSThEnbzlU" />
+      <meta
+         name="description"
+         content="full-stack web dev ready to create amazing websites for you" />
+      <meta name="keywords" content="dev, web-dev, full-stack web dev" />
+      <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+      <base href="https://wahidsharifi.vercel.app">
+      <meta name="author" content="wahid Sharifi" />
+      <title>Wahid Sharifi</title>
+      <link rel="shortcut icon" href="file/img/icon.svg" type="image/webp" />
+      <link rel="stylesheet" href="style.css" />
+   </head>
 
-<head>
-   <meta charset="UTF-8" />
-   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-   <meta name="google-site-verification" content="Knlzw3hwcTCaJVCHFCNdJtELsUjP14EXbvSThEnbzlU" />
-   <meta name="description" content="full-stack web dev ready to create amazing websites for you" />
-   <meta name="keywords" content="dev, web-dev, full-stack web dev" />
-   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-   <!-- <base href="https://wahidsharifi.vercel.app"> -->
-   <meta name="author" content="wahid Sharifi" />
-   <title>Wahid Sharifi</title>
-   <link rel="shortcut icon" href="file/img/icon.svg" type="image/webp">
-   <link rel="stylesheet" href="style.css" />
-</head>
+   <body>
+      <header>
+         <div class="hlogo">
+            <img src="file/img/icon.svg" alt="" loading="lazy" />Wahid Sharifi
+         </div>
+         <nav class="nav">
+            <a
+               href="#introduce"
+               class="nav-item is-active"
+               active-color="var(--link)"
+               ><span class="navLongText">Intro</span
+               ><span class="navShortText">1</span></a
+            >
+            <a href="#skills" class="nav-item" active-color="var(--link)"
+               ><span class="navLongText">Skills</span
+               ><span class="navShortText">2</span></a
+            >
+            <a href="#educations" class="nav-item" active-color="var(--link)"
+               ><span class="navLongText">Educations</span
+               ><span class="navShortText">3</span></a
+            >
+            <a href="#projects" class="nav-item" active-color="var(--link)"
+               ><span class="navLongText">Projects</span
+               ><span class="navShortText">4</span></a
+            >
+            <a href="#footer" class="nav-item" active-color="var(--link)"
+               ><span class="navLongText">Contact</span
+               ><span class="navShortText">5</span></a
+            >
+            <span class="nav-indicator"></span>
+         </nav>
+         <div id="youNeed">
+            <a
+               href="https://drive.google.com/file/d/1mCfL1dtWGKXKVrYAddaLCRr80os1na42/view?usp=sharing"
+               class="resume"
+               download
+               >resume</a
+            >
+            <div id="theme">
+               <img src="file/img/header/lightMode.svg" alt="" />
+               <img src="file/img/header/darkMode.svg" alt="" />
+            </div>
+         </div>
+      </header>
+      <main>
+         <section id="introduce" class="section">
+            <div id="myImg">
+               <img src="file/img/me.webp" alt="author img failed to load" />
+            </div>
+            <div id="myIntroduce">
+               <h1>WAHID SHARIFI</h1>
+               <span>web developer</span>
+               <p>
+                  hi i am wahid sharifi a web developer. <br />
+                  part of the
+                  <a href="https://leonnoel.com/100devs/" class="blue"
+                     ><strong class="blue">100Devs</strong></a
+                  >
+                  community,<br />
+                  enjoy to help you build your website
+               </p>
+            </div>
+         </section>
+         <h2>Skills & tools</h2>
+         <div id="skills" class="skills section">
+            <div class="skill">
+               <div class="skill-name">
+                  <img
+                     src="file/img/skill/HTML-logo.svg"
+                     alt=""
+                     loading="lazy" />HTML
+               </div>
+               <div class="skill-bar">
+                  <div
+                     class="skill-per full"
+                     per="&#10003;"
+                     style="max-width: 100%"></div>
+               </div>
+            </div>
+            <div class="skill">
+               <div class="skill-name">
+                  <img src="file/img/skill/git.svg" alt="" loading="lazy" />Git
+               </div>
+               <div class="skill-bar">
+                  <div
+                     class="skill-per full four"
+                     per="&#10003;"
+                     style="max-width: 100%"></div>
+               </div>
+            </div>
+            <div class="skill">
+               <div class="skill-name">
+                  <img
+                     src="file/img/skill/CSS-logo.svg"
+                     alt=""
+                     loading="lazy" />CSS
+               </div>
+               <div class="skill-bar">
+                  <div
+                     class="skill-per full two"
+                     per="&#10003;"
+                     style="max-width: 100%"></div>
+               </div>
+            </div>
+            <div class="skill">
+               <div class="skill-name">
+                  <img
+                     src="file/img/skill/github.svg"
+                     alt=""
+                     loading="lazy"
+                     class="photo" />GitHub
+               </div>
+               <div class="skill-bar">
+                  <div
+                     class="skill-per full five"
+                     per="&#10003;"
+                     style="max-width: 100%"></div>
+               </div>
+            </div>
+            <div class="skill">
+               <div class="skill-name">
+                  <img
+                     src="file/img/skill/JS_logo.svg"
+                     alt=""
+                     loading="lazy" />JAVASCRIPT
+               </div>
+               <div class="skill-bar">
+                  <div
+                     class="skill-per three"
+                     per="70%"
+                     style="max-width: 70%"></div>
+               </div>
+            </div>
+            <div class="skill">
+               <div class="skill-name">
+                  <img
+                     src="file/img/skill/NodeJS.svg"
+                     alt=""
+                     loading="lazy" />NodeJS
+               </div>
+               <div class="skill-bar">
+                  <div
+                     class="skill-per six"
+                     per="40%"
+                     style="max-width: 40%"></div>
+               </div>
+            </div>
+         </div>
+         <h2>Education</h2>
+         <div id="educations" class="section">
+            <section class="educations">
+               <div class="education">
+                  <div class="educateContent">
+                     <div class="demo firs">
+                        <img
+                           src="file/img/education/100devs.webp"
+                           class="photo"
+                           alt="" />
+                     </div>
+                     <h3>HTML, CSS, JS</h3>
+                     <span><a href="https://100devs.org">100Devs</a></span>
+                     <ul>
+                        <li>
+                           Currently participating in the 100Devs program,
+                           focusing on full-stack web development. Gained
+                           proficiency in HTML, CSS, and JavaScript, with
+                           ongoing learning in advanced web technologies.
+                        </li>
+                     </ul>
+                     <span class="date present">2024 - now</span>
+                  </div>
+               </div>
+               <div class="education">
+                  <div class="educateContent">
+                     <div class="demo ejs">
+                        <img src="file/img/skill/JS_logo.svg" alt="" />
+                     </div>
+                     <h3>JS</h3>
+                     <span
+                        ><a href="https://eloquentjavascript.net"
+                           >Eloquent JS</a
+                        ></span
+                     >
+                     <ul>
+                        <li>
+                           Completed the "Eloquent JavaScript" book, gaining
+                           in-depth knowledge of modern JavaScript concepts,
+                           programming fundamentals, and best practices for
+                           writing clean and efficient code.
+                        </li>
+                     </ul>
+                     <span class="date">September 2024</span>
+                  </div>
+               </div>
+               <div class="education">
+                  <div class="educateContent">
+                     <div class="demo">
+                        <img src="file/img/education/jsway.webp" alt="" />
+                     </div>
+                     <h3>JS</h3>
+                     <span><a href="https://thejsway.net">The JS Way</a></span>
+                     <ul>
+                        <li>
+                           Finished "The JS Way" book, learning advanced
+                           JavaScript concepts and an introduction to Node.js
+                           for server-side development.
+                        </li>
+                     </ul>
+                     <span class="date july">July 2024</span>
+                  </div>
+               </div>
+               <div class="education">
+                  <div class="educateContent">
+                     <div class="demo">
+                        <img
+                           src="file/img/education/coursera.png"
+                           class="cc"
+                           alt="" />
+                     </div>
+                     <h3>JS</h3>
+                     <span
+                        ><a
+                           href="https://www.codecademy.com/enrolled/courses/introduction-to-javascript"
+                           >codeAcademy</a
+                        ></span
+                     >
+                     <ul>
+                        <li>
+                           Completed Codecademy's "Introduction to JavaScript"
+                           course, building a foundation in JavaScript basics
+                           and programming logic.
+                        </li>
+                     </ul>
+                     <span class="date">May 2024</span>
+                  </div>
+               </div>
+               <div class="education">
+                  <div class="educateContent">
+                     <div class="demo">
+                        <img
+                           src="file/img/education/fcc.svg"
+                           class="photo"
+                           alt="" />
+                     </div>
+                     <h3>HTML, CSS</h3>
+                     <span
+                        ><a
+                           href="https://www.freecodecamp.org/certification/wahidahsharifi/responsive-web-design"
+                           >FreeCodeCamp</a
+                        ></span
+                     >
+                     <ul>
+                        <li>
+                           Earned freeCodeCamp's "Responsive Web Design"
+                           certification, mastering HTML, CSS, and modern web
+                           design principles.
+                        </li>
+                     </ul>
+                     <span class="date may">April 2024</span>
+                  </div>
+               </div>
+               <div class="education">
+                  <div class="educateContent">
+                     <div class="demo">
+                        <img src="file/img/education/trick.svg" alt="" />
+                     </div>
+                     <h3>CSS Flex-box</h3>
+                     <span
+                        ><a
+                           href="https://www.freecodecamp.org/news/css-flexbox-tutorial-with-cheatsheet"
+                           >FFC</a
+                        ><a href="https://mastery.games/flexboxzombies"
+                           >Flex-box Zombies</a
+                        ><a href="http://flexboxfroggy.com">Flex-box Froggy</a
+                        ><a
+                           href="https://css-tricks.com/snippets/css/a-guide-to-flexbox"
+                           >CSS-TRICKS</a
+                        ></span
+                     >
+                     <ul>
+                        <li>
+                           Completed "Flexbox Zombies" course, gaining hands-on
+                           experience with CSS Flexbox.
+                        </li>
+                        <li>
+                           Practiced Flexbox concepts through the interactive
+                           game "Flexbox Froggy."
+                        </li>
+                        <li>
+                           Studied freeCodeCamp's "CSS Flexbox Tutorial,"
+                           learning to create responsive web layouts.
+                        </li>
+                        <li>
+                           Explored CSS-Tricks' "A Complete Guide to Flexbox"
+                           for an in-depth understanding of advanced Flexbox
+                           techniques.
+                        </li>
+                     </ul>
+                     <span class="date may">March 2024</span>
+                  </div>
+               </div>
+               <div class="education">
+                  <div class="educateContent">
+                     <div class="demo">
+                        <img src="file/img/education/trick.svg" alt="" />
+                     </div>
+                     <h3>CSS Grid</h3>
+                     <span
+                        ><a
+                           href="https://css-tricks.com/snippets/css/complete-guide-grid"
+                           >CSS-TRICKS</a
+                        ><a href="https://cssgridgarden.com"
+                           >Grid Garden</a
+                        ></span
+                     >
+                     <ul>
+                        <li>
+                           Learned CSS Grid through "A Complete Guide to Grid"
+                           on CSS-Tricks and the interactive game "CSS Grid
+                           Garden," mastering layout creation, alignment, and
+                           responsive design techniques.
+                        </li>
+                     </ul>
+                     <span class="date may">March 2024</span>
+                  </div>
+               </div>
+               <div class="education">
+                  <div class="educateContent">
+                     <div class="demo">
+                        <img
+                           src="file/img/education/100devs.webp"
+                           class="photo shayh"
+                           alt="" />
+                     </div>
+                     <h3>HTML, CSS</h3>
+                     <span
+                        ><a href="https://learn.shayhowe.com"
+                           >Shay Howe</a
+                        ></span
+                     >
+                     <ul>
+                        <li>
+                           Completed "Learn to Code HTML & CSS" by Shay Howe,
+                           gaining a solid understanding of HTML and CSS
+                           fundamentals, including best practices for building
+                           responsive and accessible web pages.
+                        </li>
+                     </ul>
+                     <span class="date may">February 2024</span>
+                  </div>
+               </div>
+               <div class="education">
+                  <div class="educateContent">
+                     <div class="demo">
+                        <img src="file/img/education/coursera.png" alt="" />
+                     </div>
+                     <h3>how to learn</h3>
+                     <span
+                        ><a
+                           href="https://www.coursera.org/learn/learning-how-to-learn"
+                           >Coursera</a
+                        ></span
+                     >
+                     <ul>
+                        <li>
+                           Completed the "Learning How to Learn" course on
+                           Coursera, developing effective learning strategies
+                           and habits to enhance problem-solving and retention
+                           of complex concepts.
+                        </li>
+                     </ul>
+                     <span class="date may">January 2024</span>
+                  </div>
+               </div>
+            </section>
+         </div>
+         <h2>Latest Projects <a href="projects" class="blue">more</a></h2>
+         <section id="projects" class="section">
+            <div class="project">
+               <div class="projectsImg">
+                  <img
+                     src="file/img/project/divisibilitytest.webp"
+                     alt="preview failed to load"
+                     loading="lazy" />
+               </div>
+               <h3>
+                  <a href="https://divisibility-test.vercel.app"
+                     >divisibility test</a
+                  >
+               </h3>
+               <p>
+                  The Divisibility Test website is both a calculator and an educational tool for learning divisibility rules. It automatically checks if a number is divisible by 1-20 and includes a two-input section for more advanced calculations.
+               </p>
+            </div>
+            <div class="project">
+               <div class="projectsImg">
+                  <img src="file/img/project/restaurant.webp" alt="" />
+               </div>
+               <h3>
+                  <a href="https://mycuisine-restaurant.vercel.app"
+                     >Cuisine Restaurant</a
+                  >
+               </h3>
+               <p>
+                  Cuisine Restaurant is an interactive platform where users can easily order food, learn more about the restaurant, and get in touch for inquiries or reservations.
+               </p>
+            </div>
+            <div class="project">
+               <div class="projectsImg">
+                  <img src="file/img/project/hair-salon.webp" alt="" />
+               </div>
+               <h3>
+                  <a href="https://ayesha-saloon.vercel.app">hair-salon</a>
+               </h3>
+               <p>
+                  Ayesha’s Saloon is a beauty and wellness website where clients can explore services, book appointments, and get to know the salon's team for a relaxing and personalized experience.
+               </p>
+            </div>
+         </section>
+      </main>
+      <footer id="footer" class="section">
+         <h2>Let's Get connected</h2>
+         <section id="contact">
+            <form id="form">
+               <input
+                  type="text"
+                  id="fullName"
+                  class="input"
+                  spellcheck="false"
+                  autocomplete="off"
+                  required />
+               <label for="fullName">Full Name</label>
 
-<body>
-   <main>
-      <section id="introduce">
-         <div id="myImg">
-            <img src="file/img/me.webp" alt="author img failed to load" />
-         </div>
-         <div id="myIntroduce">
-            <h1>WAHID SHARIFI</h1>
-            <span>web developer</span>
-            <p>
-               hi i am wahid sharifi a web developer. <br>
-               part of the
-               <a href="https://leonnoel.com/100devs/"><strong class="blue">100Devs</strong>
-               </a>
-               community,<br>
-               enjoy to help you build your website
-            </p>
-            <div id="youNeed">
-               <a href="https://drive.google.com/file/d/1mCfL1dtWGKXKVrYAddaLCRr80os1na42/view?usp=sharing"
-                  download>resume</a>
-               <div id="theme">
-                  <div id="mode"></div>mode
-               </div>
-            </div>
-         </div>
-      </section>
-      <h2>Skills & tools</h2>
-      <div class="skills">
-         <div class="skill">
-            <div class="skill-name"><img src="file/img/skill/HTML-logo.svg" alt="" loading="lazy">HTML</div>
-            <div class="skill-bar">
-               <div class="skill-per full" per="&#10003;" style="max-width: 100%"></div>
-            </div>
-         </div>
-         <div class="skill">
-            <div class="skill-name"><img src="file/img/skill/git.svg" alt="" loading="lazy">Git</div>
-            <div class="skill-bar">
-               <div class="skill-per full four" per="&#10003;" style="max-width: 100%"></div>
-            </div>
-         </div>
-         <div class="skill">
-            <div class="skill-name"><img src="file/img/skill/CSS-logo.svg" alt="" loading="lazy">CSS</div>
-            <div class="skill-bar">
-               <div class="skill-per full two" per="&#10003;" style="max-width: 100%"></div>
-            </div>
-         </div>
-         <div class="skill">
-            <div class="skill-name"><img src="file/img/skill/github.svg" alt="" loading="lazy" class="photo">GitHub</div>
-            <div class="skill-bar">
-               <div class="skill-per full five" per="&#10003;" style="max-width: 100%"></div>
-            </div>
-         </div>
-         <div class="skill">
-            <div class="skill-name"><img src="file/img/skill/JS_logo.svg" alt="" loading="lazy">JAVASCRIPT</div>
-            <div class="skill-bar">
-               <div class="skill-per three" per="70%" style="max-width: 70%"></div>
-            </div>
-         </div>
-         <div class="skill">
-            <div class="skill-name"><img src="file/img/skill/NodeJS.svg" alt="" loading="lazy">NodeJS</div>
-            <div class="skill-bar">
-               <div class="skill-per six" per="40%" style="max-width: 40%"></div>
-            </div>
-         </div>
-      </div>
-      <h2 id="educations">Education</h2>
-      <section class="educations">
-         <div class="education">
-            <div class="educateContent">
-               <div class="demo firs">
-                  <img src="file/img/education/100devs.webp" class="photo" alt="">
-               </div>
-               <h3>HTML, CSS, JS</h3>
-               <span><a href="https://100devs.org">100Devs</a></span>
-               <ul>
-                  <li>Currently participating in the 100Devs program, focusing on full-stack web development. Gained proficiency in HTML, CSS, and JavaScript, with ongoing learning in advanced web technologies.</li>
-               </ul>
-               <span class="date present">2024 - now</span>
-            </div>
-         </div>
-         <div class="education">
-            <div class="educateContent">
-               <div class="demo ejs">
-                  <img src="file/img/skill/JS_logo.svg" alt="">
-               </div>
-               <h3>JS</h3>
-               <span><a href="https://eloquentjavascript.net">Eloquent JS</a></span>
-               <ul>
-                  <li>Completed the "Eloquent JavaScript" book, gaining in-depth knowledge of modern JavaScript concepts, programming fundamentals, and best practices for writing clean and efficient code.</li>
-               </ul>
-               <span class="date">September 2024</span>
-            </div>
-         </div>
-         <div class="education">
-            <div class="educateContent">
-               <div class="demo">
-                  <img src="file/img/education/jsway.webp" alt="">
-               </div>
-               <h3>JS</h3>
-               <span><a href="https://thejsway.net">The JS Way</a></span>
-               <ul>
-                  <li>Finished "The JS Way" book, learning advanced JavaScript concepts and an introduction to Node.js for server-side development.</li>
-               </ul>
-               <span class="date july">July 2024</span>
-            </div>
-         </div>
-         <div class="education">
-            <div class="educateContent">
-               <div class="demo">
-                  <img src="file/img/education/coursera.png" class="cc" alt="">
-               </div>
-               <h3>JS</h3>
-               <span><a href="https://www.codecademy.com/enrolled/courses/introduction-to-javascript">codeAcademy</a></span>
-               <ul>
-                  <li>Completed Codecademy's "Introduction to JavaScript" course, building a foundation in JavaScript basics and programming logic.</li>
-               </ul>
-               <span class="date">May 2024</span>
-            </div>
-         </div>
-         <div class="education">
-            <div class="educateContent">
-               <div class="demo">
-                  <img src="file/img/education/fcc.svg" class="photo" alt="">
-               </div>
-               <h3>HTML, CSS</h3>
-               <span><a href="https://www.freecodecamp.org/certification/wahidahsharifi/responsive-web-design">FreeCodeCamp</a></span>
-               <ul>
-                  <li>Earned freeCodeCamp's "Responsive Web Design" certification, mastering HTML, CSS, and modern web design principles.</li>
-               </ul>
-               <span class="date may">April 2024</span>
-            </div>
-         </div>
-         <div class="education">
-            <div class="educateContent">
-               <div class="demo">
-                  <img src="file/img/education/trick.svg" alt="">
-               </div>
-               <h3>CSS Flex-box</h3>
-               <span><a href="https://www.freecodecamp.org/news/css-flexbox-tutorial-with-cheatsheet">FFC</a><a href="https://mastery.games/flexboxzombies">Flex-box Zombies</a><a href="http://flexboxfroggy.com">Flex-box Froggy</a><a href="https://css-tricks.com/snippets/css/a-guide-to-flexbox">CSS-TRICKS</a></span>
-               <ul>
-                  <li>Completed "Flexbox Zombies" course, gaining hands-on experience with CSS Flexbox.</li>
-                  <li>Practiced Flexbox concepts through the interactive game "Flexbox Froggy."</li>
-                  <li>Studied freeCodeCamp's "CSS Flexbox Tutorial," learning to create responsive web layouts.</li>
-                  <li>Explored CSS-Tricks' "A Complete Guide to Flexbox" for an in-depth understanding of advanced Flexbox techniques.</li>
-               </ul>
-               <span class="date may">March 2024</span>
-            </div>
-         </div>
-         <div class="education">
-            <div class="educateContent">
-               <div class="demo">
-                  <img src="file/img/education/trick.svg" alt="">
-               </div>
-               <h3>CSS Grid</h3>
-               <span><a href="https://css-tricks.com/snippets/css/complete-guide-grid">CSS-TRICKS</a><a href="https://cssgridgarden.com">Grid Garden</a></span>
-               <ul>
-                  <li>Learned CSS Grid through "A Complete Guide to Grid" on CSS-Tricks and the interactive game "CSS Grid Garden," mastering layout creation, alignment, and responsive design techniques.</li>
-               </ul>
-               <span class="date may">March 2024</span>
-            </div>
-         </div>
-         <div class="education">
-            <div class="educateContent">
-               <div class="demo">
-                  <img src="file/img/education/100devs.webp" class="photo shayh" alt="">
-               </div>
-               <h3>HTML, CSS</h3>
-               <span><a href="https://learn.shayhowe.com">Shay Howe</a></span>
-               <ul>
-                  <li>Completed "Learn to Code HTML & CSS" by Shay Howe, gaining a solid understanding of HTML and CSS fundamentals, including best practices for building responsive and accessible web pages.</li>
-               </ul>
-               <span class="date may">February 2024</span>
-            </div>
-         </div>
-         <div class="education">
-            <div class="educateContent">
-               <div class="demo">
-                  <img src="file/img/education/coursera.png" alt="">
-               </div>
-               <h3>how to learn</h3>
-               <span><a href="https://www.coursera.org/learn/learning-how-to-learn">Coursera</a></span>
-               <ul>
-                  <li>Completed the "Learning How to Learn" course on Coursera, developing effective learning strategies and habits to enhance problem-solving and retention of complex concepts.</li>
-               </ul>
-               <span class="date may">January 2024</span>
-            </div>
-         </div>
-      </section>
-      <h2>Latest Projects <a href="projects" class="blue">more</a></h2>
-      <section id="Projects">
-         <div class="project">
-            <div class="projectsImg">
-               <img src="file/img/project/divisibilitytest.webp" alt="preview failed to load" loading="lazy">
-            </div>
-            <h3><a href="https://divisibility-test.vercel.app">divisibility test</a></h3>
-            <p>The divisibility test website is a calculator and a place to learn the divisibility rules, The website
-               calculates if the number is divisible by 1-20 automatically, and a two input part to calculate further
-               numbers.</p>
-         </div>
-         <div class="project">
-            <div class="projectsImg">
-               <img src="file/img/project/restaurant.webp" alt="">
-            </div>
-            <h3><a href="https://mycuisine-restaurant.vercel.app">Cuisine Restaurant</a></h3>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus iusto reiciendis assumenda quidem
-               earum voluptas.</p>
-         </div>
-         <div class="project">
-            <div class="projectsImg">
-               <img src="file/img/project/hair-salon.webp" alt="">
-            </div>
-            <h3><a href="https://ayesha-saloon.vercel.app">hair-salon</a></h3>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus iusto reiciendis assumenda quidem
-               earum voluptas.</p>
-         </div>
-      </section>
-   </main>
-   <footer>
-      <h2>Let's Get connected</h2>
-      <section id="contact">
-         <form id="form">
-            <input type="text" id="fullName" class="input" spellcheck="false" autocomplete="off" required>
-            <label for="fullName">Full Name</label>
+               <input
+                  type="text"
+                  id="email"
+                  class="input"
+                  spellcheck="false"
+                  autocomplete="off"
+                  required />
+               <label for="email">Email</label>
 
-            <input type="text" id="email" class="input" spellcheck="false" autocomplete="off" required>
-            <label for="email">Email</label>
+               <textarea
+                  name="message"
+                  class="input"
+                  id="message"
+                  autocomplete="off"
+                  required></textarea>
+               <label for="message">Message</label>
 
-            <textarea name="message" class="input" id="message" autocomplete="off" required></textarea>
-            <label for="message">Message</label>
-
-            <input type="submit" value="Submit">
-            <input type="reset" value="Reset">
-         </form>
-         <div id="rel">
-            <div id="rellinks">
-               <a href="mailto:thesharifi.wahid@gmail.com"><img src="file/img/contact/mail.svg" alt="" class="photo"><span>Email</span><span>thesharifi.wahid@gmail.com</span></a>
-               <a href="tel:+93795737762"><img src="file/img/contact/call.svg" alt="" loading="lazy" class="photo"><span>Call</span><span>+93 795 7377 62</span></a>
-               <a href="https://x.com/wahidahsharifi"><img src="file/img/contact/X.webp" alt="" class="photo"
-                     loading="lazy"><span>x.com</span><span>@wahidahsharifi</span></a>
-               <a href="https://read.cv/wahidahsharifi"><img src="file/img/contact/description.svg" alt="" class="photo"
-                     loading="lazy"><span>read.cv</span><span>read.cv/wahidahsharifi</span></a>
-               <a href="https://linkden.com/wahidahsharifi"><img src="file/img/contact/LinkedIn.svg" alt=""
-                     loading="lazy"><span>LinkedIn</span><span>@wahidahsharifi</span></a>
-               <a href="https://github.com/wahidahsharifi"><img src="file/img/skill/github.svg" alt="" class="photo"
-                     loading="lazy"><span>GitHub</span><span>@wahidahsharifi</span></a>
+               <input type="submit" value="Submit" />
+               <input type="reset" value="Reset" />
+            </form>
+            <div id="rel">
+               <div id="rellinks">
+                  <a href="mailto:thesharifi.wahid@gmail.com"
+                     ><img
+                        src="file/img/contact/mail.svg"
+                        alt=""
+                        class="photo" /><span>Email</span
+                     ><span>thesharifi.wahid@gmail.com</span></a
+                  >
+                  <a href="tel:+93795737762"
+                     ><img
+                        src="file/img/contact/call.svg"
+                        alt=""
+                        loading="lazy"
+                        class="photo" /><span>Call</span
+                     ><span>+93 795 7377 62</span></a
+                  >
+                  <a href="https://x.com/wahidahsharifi"
+                     ><img
+                        src="file/img/contact/X.webp"
+                        alt=""
+                        class="photo"
+                        loading="lazy" /><span>x.com</span
+                     ><span>@wahidahsharifi</span></a
+                  >
+                  <a href="https://read.cv/wahidahsharifi"
+                     ><img
+                        src="file/img/contact/description.svg"
+                        alt=""
+                        class="photo"
+                        loading="lazy" /><span>read.cv</span
+                     ><span>read.cv/wahidahsharifi</span></a
+                  >
+                  <a href="https://linkden.com/wahidahsharifi"
+                     ><img
+                        src="file/img/contact/LinkedIn.svg"
+                        alt=""
+                        loading="lazy" /><span>LinkedIn</span
+                     ><span>@wahidahsharifi</span></a
+                  >
+                  <a href="https://github.com/wahidahsharifi"
+                     ><img
+                        src="file/img/skill/github.svg"
+                        alt=""
+                        class="photo"
+                        loading="lazy" /><span>GitHub</span
+                     ><span>@wahidahsharifi</span></a
+                  >
+               </div>
             </div>
-         </div>
-      </section>
-      <script src="main.js"></script>
-   </footer>
-</body>
-
+         </section>
+         <script src="main.js"></script>
+      </footer>
+   </body>
 </html>

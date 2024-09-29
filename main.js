@@ -19,8 +19,10 @@ themeBtn.addEventListener("click", () => {
            "--aHover": "#ebebebcc",
            "--link": "#00f",
            "--invert": "1",
+           "--inverti": "0",
            "--brightness": "0",
            "--brighten": "1",
+           "--position": "0px",
         }
       : {
            "--bgColor": "#050816",
@@ -28,14 +30,117 @@ themeBtn.addEventListener("click", () => {
            "--aHover": "#332d51cf",
            "--link": "#ff0",
            "--invert": "0",
+           "--inverti": "1",
            "--brightness": "1",
            "--brighten": "0.9",
+           "--position": "-44px",
         };
 
    updateThemeProperties(themeProperties);
    isDarkTheme = !isDarkTheme;
 });
 
+/*
+   header
+*/
+const indicator = document.querySelector(".nav-indicator");
+const items = document.querySelectorAll(".nav-item");
+const sections = document.querySelectorAll(".section");
+
+function handleIndicator(el) {
+   items.forEach((item) => {
+      item.classList.remove("is-active", "reach");
+      item.removeAttribute("style");
+   });
+
+   indicator.style.width = `${el.offsetWidth}px`;
+   indicator.style.left = `${el.offsetLeft}px`;
+   indicator.style.backgroundColor = el.getAttribute("active-color");
+
+   el.classList.add("is-active");
+   el.style.color = el.getAttribute("active-color");
+}
+
+function getThresholdForSection(section) {
+   const sectionHeight = section.offsetHeight;
+   const viewportHeight = window.innerHeight;
+
+   if (sectionHeight > viewportHeight) {
+      return [0.1, 0.25, 0.5, 0.75, 0.9];
+   } else {
+      return 0.8;
+   }
+}
+
+let observers = [];
+
+function observeSections() {
+   observers.forEach((observer) => observer.disconnect());
+   observers = [];
+
+   sections.forEach((section) => {
+      const sectionThreshold = getThresholdForSection(section);
+
+      const sectionObserver = new IntersectionObserver(
+         (entries) => {
+            entries.forEach((entry) => {
+               const navItem = document.querySelector(
+                  `a[href="#${entry.target.id}"]`
+               );
+               if (entry.isIntersecting) {
+                  navItem.classList.add("reach");
+                  handleIndicator(navItem);
+               } else {
+                  navItem.classList.remove("reach");
+               }
+            });
+         },
+         {
+            root: null,
+            rootMargin: "0px",
+            threshold: sectionThreshold,
+         }
+      );
+
+      sectionObserver.observe(section);
+      observers.push(sectionObserver);
+   });
+}
+
+observeSections();
+
+items.forEach((item) => {
+   item.addEventListener("click", (e) => {
+      e.preventDefault();
+      const targetId = item.getAttribute("href").substring(1);
+      const targetSection = document.getElementById(targetId);
+
+      // Smooth scroll to the section
+      targetSection.scrollIntoView({ behavior: "smooth", block: "start" });
+   });
+});
+
+const resizeObserver = new ResizeObserver(() => {
+   observeSections();
+});
+
+sections.forEach((section) => {
+   resizeObserver.observe(section);
+});
+
+// nav position
+const nav = document.querySelector("nav");
+const start = 0;
+const end = 100;
+const startTop = 60;
+const endTop = 15;
+
+window.addEventListener("scroll", () => {
+   const scrollY = window.scrollY;
+   const progress = Math.min(Math.max((scrollY - start) / (end - start), 0), 1);
+   const newTop = startTop - (startTop - endTop) * progress;
+   nav.style.top = `${newTop}px`;
+});
 /*
    skill bar
 */
@@ -68,11 +173,9 @@ window.addEventListener("scroll", function () {
    messages.forEach((message) => {
       const image = message.querySelector(".demo");
 
-      // Get the top position of the message relative to the viewport
       const messageTop = message.getBoundingClientRect().top;
 
-      // Check if the message is 100px away from leaving the viewport
-      if (messageTop <= 10 && messageTop >= -message.offsetHeight + 60) {
+      if (messageTop <= 70 && messageTop >= -message.offsetHeight + 120) {
          image.classList.add("sticky");
       } else {
          image.classList.remove("sticky");
