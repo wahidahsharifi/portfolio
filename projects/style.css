@@ -1,16 +1,17 @@
+@import url('https://fonts.googleapis.com/css2?family=Fredoka:wdth@75..125&display=swap');
 :root {
-   --bgColor: #ffb300;
+   --bgColor: #efefef;
    --textColor: #000;
+   --invert: 1;
 }
 /* theme */
 @media screen and (prefers-color-scheme: dark) {
    :root {
       --bgColor: radial-gradient(
-         circle at 25% 50%,
-         rgb(96, 96, 96) 14%,
-         rgba(24, 32, 49, 1) 100%
+         rgba(124, 176, 255, 0.208)
       );
       --textColor: #fff;
+      --invert: 0;
    }
 }
 html {
@@ -22,9 +23,20 @@ html {
    box-sizing: border-box;
    color: var(--textColor);
 }
-body {
-   margin: 0;
-   background: var(--bgColor);
+body::before {
+   content: "";
+   position: fixed;
+   top: 0;
+   left: 0;
+   width: 100%;
+   height: 100%;
+   background-image: url("img/herobg.webp");
+   background-size: cover;
+   background-attachment: fixed;
+   background-position: center;
+   background-repeat: no-repeat;
+   filter: invert(var(--invert));
+   z-index: -1;
 }
 main {
    max-width: 2000px;
@@ -35,41 +47,101 @@ h1 {
    font-size: clamp(20px, 7vw, 50px);
 }
 /* introduce */
+#view{
+   display: flex;
+   justify-content: space-between;
+   align-items: flex-start;
+}
+.photo{
+   filter: invert(var(--invert));
+}
+#plinks, .links{
+   position: absolute;
+   top: 10px;
+   right: 10px;
+   padding: 0;
+   overflow: hidden;
+   background-color: #898982a8;
+   backdrop-filter: blur(5px);
+   border-radius: 10px;
+   transition: margin 200ms ease;
+   display: flex;
+}
+#plinks a, .links a{
+
+   &:hover{
+      background-color: #5e5656;
+      cursor: pointer;
+   }
+}
+#plinks img, .links img{
+   width: 50px;
+   filter: invert(0);
+   aspect-ratio: 1/1;
+}
+#plinks a:last-of-type{
+   border-right: none;
+}
+.links a{
+   margin: 0 !important;
+}
+#preview{
+   display: none;
+   width: min(50%, 600px);
+   position: relative;
+}
+#preview img{
+   border-radius: 10px;
+}
 #Projects {
    display: flex;
-   flex-flow: row wrap;
-   width: 100%;
-   padding: 20px 5%;
-   background: var(--bgColor);
-   gap: 30px 20px;
+   position: relative;
+   flex-flow: column wrap;
+   width: max-content;
+   margin: 0 auto;
+   gap: 0 20px;
    justify-content: space-evenly;
    align-content: start;
    align-items: stretch;
-   padding: 0 5% 40px 5%;
+   padding: 0 0 40px 0;
 }
 .project {
    display: flex;
    flex-flow: column wrap;
-   justify-content: space-between;
-   width: clamp(300px, 90vw, 600px);
-   background-color: rgb(255, 212, 170);
-   padding: 0 0 20px 0;
-   border-radius: 10px;
+   justify-content: flex-start;
+   width: clamp(200px, 90vw, 600px);
+   background-color: var(--bgColor);
+   padding: 0;
+   backdrop-filter: blur(10px);
+   border-top: 1px solid var(--textColor);
+}
+#Projects > .project:first-child{
+   border-top: none;
+   border-top-left-radius: 10px;
+   border-top-right-radius: 10px;
+}
+#Projects > .project:last-child{
+   border-bottom-left-radius: 10px;
+   border-bottom-right-radius: 10px;
 }
 .project * {
    color: var(--textColor);
+   transition: max-height .6s ease, padding 100ms ease;
+   transition-delay: 0;
 }
 .projectsImg {
    border-radius: 10px 0;
+   filter: brightness(0.8);
 }
-#Projects .project a:first-child{
+#Projects .project .projectImage{
    margin: 0;
+   overflow: hidden;
+   max-height: 0;
 }
-#Projects .project a:first-child:hover + a{
-   color: #00f;
-   text-decoration: none;
+.projectImage{
+   position: relative;
 }
-.project a:first-child ~ * {
+.projectImage ~ * {
    padding-inline: 10px;
 }
 img {
@@ -77,15 +149,143 @@ img {
    aspect-ratio: 16/9;
    border-radius: 10px 10px 0 0;
 }
-#Projects a {
+#Projects a, .headContent {
    margin: 15px 0 10px 0;
+   &:hover{
+      cursor: pointer;
+   }
+}
+.headContent{
+   display: flex;
+   justify-content: space-between;
+}
+.headContent h2{
+   margin: 0;
    font-size: 22px;
+   padding-left: 10px;
+}
+.languages{
+   padding-left: 10px;
+   margin: 10px 0;
+   font-size: 16px;
+}
+.language{
+   padding: 5px 10px;
+   border-radius: 10px;
+   &:hover{
+      cursor: text;
+   }
+}
+.HTML{
+   background-color: red;
+   color: #fff;
+}
+.CSS{
+   background-color: #00f;
+   color: #fff;
+}
+.JS{
+   background-color: #ff0;
+   color: #000;
 }
 #Projects a:hover{
    color: #00f;
    text-decoration: none;
 }
 #Projects p {
-   font-size: 17px;
-   margin: 10px 0;
+   font-size: 18px;
+   padding: 0 10px;
+   font-family: "Fredoka", sans-serif;
+   overflow: hidden;
+   max-height: 0;
+   margin: 0;
+}
+.plus{
+   width: 20px;
+   height: 20px;
+   position: relative;
+}
+.plus div{
+   width: 5px;
+   height: 20px;
+   background-color: var(--textColor);
+   position: absolute;
+   left: 7.5px;
+   border-radius: 1px;
+   transition: transform 100ms ease;
+}
+.plus div:last-of-type{
+   transform: rotateZ(90deg);
+}
+.fullShow{
+   max-height: 1000px !important;
+}
+p.fullShow{
+   padding-bottom: 20px !important;
+}
+.rotate div:first-of-type{
+   transform: rotateZ(90deg);
+}
+.pexpand{
+   margin-block: 20px;
+   border-radius: 10px;
+   border-top: none;
+}
+.pexpand + .project{
+   border-top: none;
+   border-top-left-radius: 10px;
+   border-top-right-radius: 10px;
+}
+.project:has(+ .pexpand){
+   border-bottom-left-radius: 10px;
+   border-bottom-right-radius: 10px;
+}
+
+
+@media screen and (min-width: 1000px) {
+   #view{
+      justify-content: center;
+      align-items: flex-start;
+      gap: 50px;
+      max-width: 1500px;
+      margin: 0 auto;
+   }
+   #preview, #Projects{
+      flex: 1;
+   }
+   #preview{
+      display: block;
+      overflow: hidden;
+      width: 100%;
+      transition: all 200ms ease;
+   }
+   #Projects{
+      padding: 0 !important;
+      margin: 0;
+   }
+   .project{
+     margin-block: 0;
+     border-radius: 0;
+     border-top: 1px solid var(--textColor); 
+     width: 100%;
+   }
+   .pexpand + .project{
+      border-top: 1px solid var(--textColor);
+      border-radius: 0;
+   }
+   .project:has(+ .pexpand){
+      border-radius: 0;
+   }
+   .projectImage{
+      display: none;
+   }
+   .headContent h2{
+      font-size: 26px;
+   }
+   #Projects p{
+      font-size: 20px;
+   }
+   .languages{
+      font-size: 18px;
+   }
 }
