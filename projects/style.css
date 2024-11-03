@@ -260,6 +260,9 @@ p.fullShow{
    #preview{
       display: block;
       overflow: hidden;
+      position: sticky;
+      width: 50% !important;
+      /* top: 30px; */
       width: 100%;
       transition: all 200ms ease;
    }
