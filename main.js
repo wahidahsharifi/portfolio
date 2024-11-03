@@ -172,13 +172,20 @@ window.addEventListener("scroll", function () {
 
    messages.forEach((message) => {
       const image = message.querySelector(".demo");
+      const messageRect = message.getBoundingClientRect();
 
-      const messageTop = message.getBoundingClientRect().top;
-
-      if (messageTop <= 70 && messageTop >= -message.offsetHeight + 120) {
+      if (messageRect.top <= 70 && messageRect.bottom > 70 + image.offsetHeight) {
          image.classList.add("sticky");
+         image.style.position = "fixed";
+         image.style.top = "70px";
+      } else if (messageRect.bottom <= 70 + image.offsetHeight) {
+         image.classList.remove("sticky");
+         image.style.position = "absolute";
+         image.style.top = `${message.offsetHeight - image.offsetHeight}px`;
       } else {
          image.classList.remove("sticky");
+         image.style.position = "absolute";
+         image.style.top = "0";
       }
    });
 });
