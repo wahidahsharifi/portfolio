@@ -167,7 +167,10 @@ reveals.forEach((reveal) => observer.observe(reveal));
    education
 */
 
-window.addEventListener("scroll", function () {
+const mediaQuery = window.matchMedia("(max-width: 600px)");
+
+// Function to handle scroll behavior
+function handleScroll() {
    const messages = document.querySelectorAll(".educateContent");
 
    messages.forEach((message) => {
@@ -188,7 +191,32 @@ window.addEventListener("scroll", function () {
          image.style.top = "0";
       }
    });
-});
+}
+
+// Function to remove sticky styles on smaller screens
+function resetStickyStyles() {
+   const images = document.querySelectorAll(".demo");
+
+   images.forEach((image) => {
+      image.classList.remove("sticky");
+      image.style.position = "";
+      image.style.top = "";
+   });
+}
+
+// Function to toggle scroll listener and reset styles based on media query
+function toggleScrollListener() {
+   if (!mediaQuery.matches) {
+      window.addEventListener("scroll", handleScroll);
+   } else {
+      window.removeEventListener("scroll", handleScroll);
+      resetStickyStyles();
+   }
+}
+
+// Initial check and setup
+toggleScrollListener();
+mediaQuery.addEventListener("change", toggleScrollListener);
 
 /*
     projects
