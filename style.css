@@ -470,7 +470,7 @@ section#projects#projects p {
 .demo .cc {
    filter: hue-rotate(200deg);
 }
-.demo .github{
+.demo .github {
    scale: 2.4;
 }
 .sticky {
@@ -758,6 +758,10 @@ div#rellinks {
       right: 510px;
       width: max-content;
    }
+   .dateStick {
+      padding-left: 0;
+      padding-right: 24px;
+   }
    .education:nth-child(odd) .educateContent {
       left: -500px;
       & > .demo {
@@ -765,6 +769,9 @@ div#rellinks {
       }
       & > .date {
          left: 510px;
+      }
+      & > .date.dateStick{
+         padding-left: 40px;
       }
 
       &::before {
@@ -832,6 +839,14 @@ div#rellinks {
    }
    .date {
       right: 710px;
+   }
+   .dateStick {
+      padding-left: 0;
+   }
+   .education:nth-child(odd) .educateContent {
+      .dateStick {
+         padding-left: 44px !important;
+      }
    }
    .education:nth-child(odd) .educateContent {
       left: -697px;

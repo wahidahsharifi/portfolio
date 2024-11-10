@@ -167,36 +167,75 @@ reveals.forEach((reveal) => observer.observe(reveal));
    education
 */
 
-const mediaQuery = window.matchMedia("(max-width: 600px)");
+const demoMediaQuery = window.matchMedia("(max-width: 600px)");
+const dateMediaQuery = window.matchMedia("(max-width: 1000px)");
 
 // Function to handle scroll behavior
 function handleScroll() {
    const messages = document.querySelectorAll(".educateContent");
 
-   messages.forEach((message) => {
+   messages.forEach((message, index) => {
       const image = message.querySelector(".demo");
+      const date = message.querySelector(".date");
       const messageRect = message.getBoundingClientRect();
 
-      if (messageRect.top <= 70 && messageRect.bottom > 70 + image.offsetHeight) {
-         image.classList.add("sticky");
-         image.style.position = "fixed";
-         image.style.top = "70px";
-      } else if (messageRect.bottom <= 70 + image.offsetHeight) {
-         image.classList.remove("sticky");
-         image.style.position = "absolute";
-         image.style.top = `${message.offsetHeight - image.offsetHeight}px`;
-      } else {
-         image.classList.remove("sticky");
-         image.style.position = "absolute";
-         image.style.top = "0";
+      // Get .demo's bounding rectangle for left and right positioning
+      const demoRect = image.getBoundingClientRect();
+      const demoLeft = demoRect.left + window.pageXOffset;
+      const demoRight = window.innerWidth - demoRect.right + window.pageXOffset;
+
+      // Apply sticky behavior for .demo if screen width > 600px
+      if (!demoMediaQuery.matches) {
+         if (messageRect.top <= 70 && messageRect.bottom > 70 + image.offsetHeight) {
+            image.classList.add("sticky");
+            image.style.position = "fixed";
+            image.style.top = "70px";
+         } else if (messageRect.bottom <= 70 + image.offsetHeight) {
+            image.classList.remove("sticky");
+            image.style.position = "absolute";
+            image.style.top = `${message.offsetHeight - image.offsetHeight}px`;
+         } else {
+            image.classList.remove("sticky");
+            image.style.position = "absolute";
+            image.style.top = "0";
+         }
+      }
+
+      // Apply sticky behavior for .date if screen width > 1000px
+      if (!dateMediaQuery.matches) {
+         if (messageRect.top <= 70 && messageRect.bottom > 110 + date.offsetHeight) {
+            date.classList.add("dateStick");
+            date.style.position = "fixed";
+            date.style.top = "90px";
+
+            // Position .date based on reversed odd/even logic
+            if (index % 2 === 0) { 
+               date.style.right = ""; 
+               date.style.left = `${demoLeft + 50}px`;
+            } else { 
+               date.style.left = ""; 
+               date.style.right = `${demoRight + 50}px`;
+            }
+         } else if (messageRect.bottom <= 110 + date.offsetHeight) {
+            date.classList.remove("dateStick");
+            date.style.position = "absolute";
+            date.style.top = `${message.offsetHeight - date.offsetHeight - 22}px`;
+            date.style.left = ""; 
+            date.style.right = "";
+         } else {
+            date.classList.remove("dateStick");
+            date.style.position = "absolute";
+            date.style.top = "20px";
+            date.style.left = ""; 
+            date.style.right = "";
+         }
       }
    });
 }
 
-// Function to remove sticky styles on smaller screens
-function resetStickyStyles() {
+// Function to reset sticky styles for .demo
+function resetDemoStickyStyles() {
    const images = document.querySelectorAll(".demo");
-
    images.forEach((image) => {
       image.classList.remove("sticky");
       image.style.position = "";
@@ -204,19 +243,42 @@ function resetStickyStyles() {
    });
 }
 
-// Function to toggle scroll listener and reset styles based on media query
-function toggleScrollListener() {
-   if (!mediaQuery.matches) {
+// Function to reset sticky styles for .date
+function resetDateStickyStyles() {
+   const dates = document.querySelectorAll(".date");
+   dates.forEach((date) => {
+      date.classList.remove("dateStick");
+      date.style.position = "";
+      date.style.top = "";
+      date.style.left = ""; 
+      date.style.right = "";
+   });
+}
+
+// Function to toggle scroll listeners and reset styles based on media queries
+function toggleScrollListeners() {
+   // Handle `.demo` scroll behavior based on 600px condition
+   if (demoMediaQuery.matches) {
+      resetDemoStickyStyles();
+   }
+
+   // Handle `.date` scroll behavior based on 1000px condition
+   if (dateMediaQuery.matches) {
+      resetDateStickyStyles();
+   }
+
+   // Add or remove scroll listener based on the media query status
+   if (!demoMediaQuery.matches || !dateMediaQuery.matches) {
       window.addEventListener("scroll", handleScroll);
    } else {
       window.removeEventListener("scroll", handleScroll);
-      resetStickyStyles();
    }
 }
 
 // Initial check and setup
-toggleScrollListener();
-mediaQuery.addEventListener("change", toggleScrollListener);
+toggleScrollListeners();
+demoMediaQuery.addEventListener("change", toggleScrollListeners);
+dateMediaQuery.addEventListener("change", toggleScrollListeners);
 
 /*
     projects
