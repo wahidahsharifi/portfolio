@@ -198,12 +198,13 @@ main a::after {
    width: 100%;
    background-color: var(--textColor);
    transform: scaleX(0);
-   transform-origin: left;
+   transform-origin: right;
    transition: transform 200ms ease;
 }
 a:hover::after {
    transform: scaleX(1);
    border-radius: 0;
+   transform-origin: left;
 }
 footer a:hover {
    border-radius: 10px;
