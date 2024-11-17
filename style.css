@@ -446,15 +446,20 @@ section#projects#projects p {
 .demo {
    position: absolute;
    left: -70px;
+   border-radius: 100%;
+   width: 50px;
+   height: 50px;
    top: 0;
+}
+.demo > div {
+   overflow: hidden;
+   border-radius: 100%;
+   background-color: var(--bgColor);
    width: 50px;
    height: 50px;
    border: 3px solid var(--textColor);
-   background-color: var(--bgColor);
-   border-radius: 100%;
-   overflow: hidden;
 }
-.demo.firs {
+.demo.firs > div {
    border: none;
 }
 .demo img {
@@ -462,10 +467,24 @@ section#projects#projects p {
    height: 100%;
    object-fit: contain;
 }
-.demo.ejs {
+.demo.ejs > div {
    background-color: #f7df1e;
 }
-.ejs img {
+.education:nth-child(even) .educateContent {
+   .march{
+      margin-left: 40px;
+   }
+   .April{
+      margin-left: 67px;
+   }
+   .july{
+      margin-left: 90px;
+   }
+   .January{
+      margin-left: 15px;
+   }
+}
+.ejs > div img {
    object-position: -7px -13px;
 }
 .demo .cc {
@@ -530,6 +549,11 @@ section#projects#projects p {
 }
 .date {
    font-size: 16px;
+   display: inline-block;
+   width: max-content;
+}
+.dat{
+   display: none;
 }
 /* footer */
 
@@ -731,6 +755,10 @@ div#rellinks {
       height: 70px;
       left: -91.5px;
    }
+   .demo > div{
+      width: 70px;
+      height: 70px;
+   }
    .sticky {
       left: calc(50% - 51px) !important;
    }
@@ -754,27 +782,18 @@ div#rellinks {
    }
    .date {
       font-size: 20px;
-      position: absolute;
-      top: 20px;
-      right: 510px;
-      width: max-content;
-   }
-   .dateStick {
-      padding-left: 0;
-      padding-right: 24px;
+      position: relative;
+      top: -46px;
    }
    .education:nth-child(odd) .educateContent {
       left: -500px;
       & > .demo {
          left: 105%;
       }
-      & > .date {
-         left: 510px;
+      & > .demo > .date {
+         top: -51px;
+         left: 85px;
       }
-      & > .date.dateStick{
-         padding-left: 40px;
-      }
-
       &::before {
          left: 96%;
       }
@@ -838,24 +857,10 @@ div#rellinks {
    .educateContent {
       width: 600px;
    }
-   .date {
-      right: 710px;
-   }
-   .dateStick {
-      padding-left: 0;
-   }
-   .education:nth-child(odd) .educateContent {
-      .dateStick {
-         padding-left: 44px !important;
-      }
-   }
    .education:nth-child(odd) .educateContent {
       left: -697px;
       & > .demo {
          left: 102.5%;
-      }
-      & > .date {
-         left: 710px;
       }
       &::before {
          left: 97.5%;
@@ -876,6 +881,12 @@ div#rellinks {
    }
    .project:last-child {
       width: 204%;
+   }
+   .date{
+      display: none !important;
+   }
+   .dat{
+      display: inline-block;
    }
 }
 @media screen and (max-width: 700px) {
