@@ -200,10 +200,11 @@ main a::after {
    transform: scaleX(0);
    transform-origin: right;
    transition: transform 200ms ease;
+   border-radius: 5px;
 }
 a:hover::after {
    transform: scaleX(1);
-   border-radius: 0;
+   border-radius: 5px;
    transform-origin: left;
 }
 footer a:hover {
