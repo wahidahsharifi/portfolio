@@ -2,8 +2,8 @@
    theme
 */
 const rootTheme = document.querySelector(":root");
-const themeBtn = document.querySelector("#theme");
-let isDarkTheme = false;
+const themeBtn = document.querySelector("#themeToggle");
+let isDarkTheme = window.matchMedia("(prefers-color-scheme: dark)").matches; // Detect device theme
 
 const updateThemeProperties = (properties) => {
    Object.keys(properties).forEach((key) => {
@@ -11,20 +11,9 @@ const updateThemeProperties = (properties) => {
    });
 };
 
-themeBtn.addEventListener("click", () => {
+const setTheme = () => {
    const themeProperties = isDarkTheme
       ? {
-           "--bgColor": "#faf7e9",
-           "--textColor": "#000",
-           "--aHover": "#ebebebcc",
-           "--link": "#00f",
-           "--invert": "1",
-           "--inverti": "0",
-           "--brightness": "0",
-           "--brighten": "1",
-           "--position": "0px",
-        }
-      : {
            "--bgColor": "#050816",
            "--textColor": "#fff",
            "--aHover": "#332d51cf",
@@ -33,12 +22,29 @@ themeBtn.addEventListener("click", () => {
            "--inverti": "1",
            "--brightness": "1",
            "--brighten": "0.9",
-           "--position": "-44px",
+        }
+      : {
+           "--bgColor": "#faf7e9",
+           "--textColor": "#000",
+           "--aHover": "#ebebebcc",
+           "--link": "#00f",
+           "--invert": "1",
+           "--inverti": "0",
+           "--brightness": "0",
+           "--brighten": "1",
         };
 
    updateThemeProperties(themeProperties);
+
+   themeBtn.checked = isDarkTheme;
+};
+
+themeBtn.addEventListener("change", () => {
    isDarkTheme = !isDarkTheme;
+   setTheme();
 });
+
+setTheme();
 
 /*
    header
