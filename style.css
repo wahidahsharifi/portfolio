@@ -524,6 +524,9 @@ section#projects#projects p {
    .march{
       margin-left: 40px;
    }
+   .may {
+      margin-left: 90px;
+   }
    .April{
       margin-left: 67px;
    }
@@ -532,6 +535,12 @@ section#projects#projects p {
    }
    .January{
       margin-left: 15px;
+   }
+   .February {
+      margin-left: -11px;
+   }
+   .October {
+      margin-left: 0;
    }
 }
 .ejs > div img {
