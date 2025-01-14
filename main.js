@@ -321,3 +321,28 @@ form.addEventListener("submit", (e) => {
 
    form.reset();
 });
+
+
+/*
+    footer links
+*/
+
+const links = document.querySelectorAll('#rellinks > a')
+const linksParent = document.getElementById('rellinks')
+const highlighter = document.getElementById('highlighter')
+
+linksParent.addEventListener('mouseleave', () => {
+   highlighter.style.opacity = '0';
+   highlighter.style.width = '0px'
+})
+
+links.forEach(link => {
+   link.addEventListener('mouseenter', (e) => {
+      const rect = e.target.getBoundingClientRect();
+      const firstRect = document.querySelector('#rellinks > a:first-of-type').getBoundingClientRect();
+      highlighter.style.opacity = '1';
+      highlighter.style.width = `${rect.width}px`;
+      highlighter.style.height = `${rect.height}px`;
+      highlighter.style.transform = `translate(0px, ${rect.top - firstRect.top}px)`
+   })
+})

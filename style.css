@@ -260,13 +260,6 @@ a:hover::after {
    border-radius: 5px;
    transform-origin: left;
 }
-footer a:hover {
-   border-radius: 10px;
-   background-color: var(--aHover);
-}
-footer a:hover::after {
-   transform: scaleX(0);
-}
 /* introduce */
 h1 {
    font-size: clamp(35px, 7vw, 140px);
@@ -746,6 +739,7 @@ div#rellinks {
    color: var(--textColor);
    gap: 10px;
    align-items: center;
+   z-index: 2;
 }
 #rellinks strong {
    font-size: 40px;
@@ -777,8 +771,13 @@ div#rellinks {
 #rellinks a[href*="linkden.com"] {
    transform: translateY(-4px);
 }
-#copywrite {
-   margin: 0 10px;
+#highlighter {
+   position: absolute;
+   background-color: var(--aHover);
+   z-index: 1;
+   border-radius: 6px;
+   transform-origin: 0;
+   transition: all 200ms ease, width 300ms ease;
 }
 /* media */
 @media screen and (min-height: 1000px) {
@@ -944,6 +943,12 @@ div#rellinks {
    }
    .dat{
       display: inline-block;
+   }
+   form input[type="reset"] {
+      display: none;
+   }
+   form input[type="submit"] {
+      width: 100%;
    }
 }
 @media screen and (max-width: 700px) {
