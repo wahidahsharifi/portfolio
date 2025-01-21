@@ -42,7 +42,7 @@
          <span class="nav-indicator"></span>
       </nav>
       <div id="youNeed">
-         <a href="https://drive.google.com/file/d/1IGEwI5dif3Er3Bhz4uIgjm-CdcKL6okb/view?usp=sharing" class="resume" download>resume</a>
+         <a href="https://drive.google.com/file/d/1IGEwI5dif3Er3Bhz4uIgjm-CdcKL6okb/view?usp=sharing" class="resume">resume</a>
          <label for="themeToggle" class="themeToggle st-sunMoonThemeToggleBtn" id="theme">
             <input type="checkbox" id="themeToggle" class="themeToggleInput" />
             <svg width="18" height="18" viewBox="0 0 20 20" fill="currentColor" stroke="none">
@@ -405,6 +405,16 @@
          </div>
       </section>
       <script src="main.js"></script>
+      <script type="speculationrules">
+         {
+           "prerender": [
+             {
+               "urls": ["projects"],
+               "eagerness": "eager"
+             }
+           ]
+         }
+       </script>
    </footer>
 </body>
 </html>
