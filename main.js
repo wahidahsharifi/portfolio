@@ -23,6 +23,7 @@ class ThemeManager {
               "--inverti": "1",
               "--brightness": "1",
               "--brighten": "0.9",
+              "--myImgFilter": "grayscale(0.6)",
            }
          : {
               "--bgColor": "#faf7e9",
@@ -33,6 +34,7 @@ class ThemeManager {
               "--inverti": "0",
               "--brightness": "0",
               "--brighten": "1",
+              "--myImgFilter": "sepia(0.6)",
            };
 
       this.updateThemeProperties(themeProperties);

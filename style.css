@@ -8,6 +8,7 @@
    --brightness: 0;
    --brighten: 1;
    --position: 0px;
+   --myImgFilter: sepia(0.6);
 }
 .photo {
    filter: brightness(var(--brightness));
@@ -27,6 +28,7 @@ img {
       --brightness: 1;
       --brighten: 0.9;
       --position: -44px;
+      --myImgFilter: grayscale(0.6);
    }
 }
 @media (hover: none) and (pointer: coarse) {
@@ -301,6 +303,8 @@ body::before {
 #myImg img {
    width: 100%;
    aspect-ratio: 1/1;
+   border-radius: 100%;
+   filter: var(--myImgFilter);
 }
 @keyframes svg {
    0% {
